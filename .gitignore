@@ -1,11 +1,15 @@
 # Python
 __pycache__/
 *.py[cod]
+
+*.pyo
+
 .venv/
 venv/
 
 # Environment secrets
 .env
+env/
 
 # Local databases and runtime files
 instance/*.db
@@ -19,3 +23,42 @@ Thumbs.db
 .venv/
 venv/
 .gitkeep/
+
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual Environment
+venv/
+.venv/
+env/
+
+# Environment variables
+.env
+.env.*
+
+!.env.example
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# IDE
+.vscode/
+.idea/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Python builds
+build/
+dist/
+*.egg-info/
+
+# Logs
+*.log

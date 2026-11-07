@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Otakuverse | Discover Your Anime World</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/home.css') }}">
+</head>
+
+<body>
+
+<header class="navbar">
+    <a href="/" class="logo">
+        <span class="logo-icon">A</span>
+        <span>OTAKU<span class="logo-highlight">VERSE</span></span>
+    </a>
+
+    <nav class="nav-links">
+        <a href="#features">Explore</a>
+        <a href="#about">About</a>
+    </nav>
+
+    <div class="nav-actions">
+        <a href="/login" class="login-btn">Login</a>
+        <a href="/register" class="register-btn">Register</a>
+    </div>
+</header>
+
+
+<main>
+
+    <section class="hero">
+
+        <div class="hero-content">
+            <span class="eyebrow">YOUR ANIME UNIVERSE STARTS HERE</span>
+
+            <h1>
+                Discover Anime.<br>
+                <span>Explore Your World.</span>
+            </h1>
+
+            <p>
+                Find your next favourite anime, challenge your knowledge,
+                discover your perfect character match and join the anime
+                community.
+            </p>
+
+            <div class="hero-actions">
+                <a href="#features" class="primary-btn">
+                    Explore Features
+                </a>
+
+                <button class="guest-btn" id="openGuestModal">
+                    Continue as Guest
+                </button>
+            </div>
+
+            <div class="hero-note">
+                No account required to explore with Guest Mode.
+            </div>
+        </div>
+
+        <div class="hero-art">
+            <div class="art-circle"></div>
+            <div class="art-text">
+                <span>YOUR NEXT</span>
+                <strong>ANIME<br>ADVENTURE</strong>
+                <span>AWAITS YOU</span>
+            </div>
+        </div>
+
+    </section>
+
+
+    <section class="features-section" id="features">
+
+        <div class="section-heading">
+            <span class="eyebrow">EXPLORE THE PLATFORM</span>
+            <h2>One Platform. <span>Five Experiences.</span></h2>
+            <p>Choose what you want to explore today.</p>
+        </div>
+
+        <div class="feature-grid">
+
+    <!-- 01 Anime Recommendations -->
+    <a href="/recommendations" class="feature-card image-card"
+   data-audio="{{ url_for('static', filename='audio/recommendations.mp3') }}">
+
+    <img
+        src="{{ url_for('static', filename='images/recommendations.png') }}"
+        class="feature-image"
+        alt="Anime Recommendations"
+    >
+
+    <div class="feature-overlay">
+
+        <span class="feature-number">01</span>
+
+        <span class="audio-label">♫ Listen to introduction</span>
+
+        <h3>Anime Recommendations</h3>
+
+        <p>
+            Discover anime based on your favourite genres,
+            moods and interests.
+        </p>
+
+        <span class="feature-link">
+            Explore Recommendations ↗
+        </span>
+
+    </div>
+
+</a>
+
+
+    <!-- 02 Anime Quiz -->
+    <a href="/quiz"
+       class="feature-card image-card"
+       data-audio="{{ url_for('static', filename='audio/quiz.mp3') }}">
+
+        <img src="{{ url_for('static', filename='images/quiz.jpg') }}"
+             class="feature-image"
+             alt="Anime Quiz">
+
+        <div class="feature-overlay">
+            <span class="feature-number">02</span>
+            <span class="audio-label">♫ Listen to introduction</span>
+            <h3>Anime Quiz</h3>
+            <p>Test your anime knowledge with character challenges, scenes and trivia.</p>
+            <span class="feature-link">Play Quiz ↗</span>
+        </div>
+    </a>
+
+
+    <!-- 03 Character Match -->
+    <a href="/character-match"
+       class="feature-card image-card"
+       data-audio="{{ url_for('static', filename='audio/character_match.mp3') }}">
+
+        <img src="{{ url_for('static', filename='images/character_match.png') }}"
+             class="feature-image"
+             alt="Character Matching">
+
+        <div class="feature-overlay">
+            <span class="feature-number">03</span>
+            <span class="audio-label">♫ Listen to introduction</span>
+            <h3>Waifu / Character Match</h3>
+            <p>Answer personality questions and discover which anime character matches you.</p>
+            <span class="feature-link">Find Your Match ↗</span>
+        </div>
+    </a>
+
+
+    <!-- 04 Hot Takes -->
+    <a href="/hot-takes"
+       class="feature-card image-card"
+       data-audio="{{ url_for('static', filename='audio/hot_takes.mp3') }}">
+
+        <img src="{{ url_for('static', filename='images/hot_takes.jpg') }}"
+             class="feature-image"
+             alt="Anime Hot Takes">
+
+        <div class="feature-overlay">
+            <span class="feature-number">04</span>
+            <span class="audio-label">♫ Listen to introduction</span>
+            <h3>Anime Hot Takes</h3>
+            <p>Share bold opinions, agree or disagree and participate in anime debates.</p>
+            <span class="feature-link">Explore Hot Takes ↗</span>
+        </div>
+    </a>
+
+
+    <!-- 05 Discussions -->
+    <a href="/discussions"
+       class="feature-card image-card discussion-card"
+       data-audio="{{ url_for('static', filename='audio/discussions.mp3') }}">
+
+        <img src="{{ url_for('static', filename='images/discussions.jpg') }}"
+             class="feature-image"
+             alt="Anime Discussions">
+
+        <div class="feature-overlay">
+            <span class="feature-number">05</span>
+            <span class="audio-label">♫ Listen to introduction</span>
+            <h3>Anime Discussions</h3>
+            <p>Connect with anime fans, share your thoughts and discuss your favourite series.</p>
+            <span class="feature-link">Join Discussions ↗</span>
+        </div>
+    </a>
+
+</div>
+
+      
+    </section>
+
+
+    <section class="guest-banner" id="about">
+
+        <div>
+            <span class="eyebrow">JUST WANT TO EXPLORE?</span>
+            <h2>Try Guest Mode</h2>
+            <p>
+                Explore the platform without creating an account.
+                Choose a temporary session and start discovering.
+            </p>
+        </div>
+
+        <button class="primary-btn" id="openGuestModalBottom">
+            Start Exploring
+        </button>
+
+    </section>
+
+</main>
+
+
+<footer class="footer">
+    <a href="/" class="logo">
+        <span class="logo-icon">A</span>
+        ANIME<span class="logo-highlight">VERSE</span>
+    </a>
+
+    <p>Made for anime fans, by anime fans.</p>
+    <span>© 2026 Otakuverse. All rights reserved.</span>
+</footer>
+
+
+<!-- Guest Mode Modal -->
+
+<div class="modal-overlay" id="guestModal">
+
+    <div class="guest-modal">
+
+        <button class="modal-close" id="closeGuestModal">×</button>
+
+        <span class="eyebrow">EXPLORE WITHOUT REGISTERING</span>
+
+        <h2>Choose Your Guest Session</h2>
+
+        <p>
+            Select how long you want to explore the platform.
+        </p>
+
+        <div class="duration-options">
+
+            <button class="duration-option" data-duration="10">
+                <strong>10</strong>
+                <span>Minutes</span>
+            </button>
+
+            <button class="duration-option selected" data-duration="20">
+                <strong>20</strong>
+                <span>Minutes</span>
+                <small>Popular</small>
+            </button>
+
+            <button class="duration-option" data-duration="30">
+                <strong>30</strong>
+                <span>Minutes</span>
+            </button>
+
+        </div>
+
+        <button class="primary-btn start-guest-btn" id="startGuest">
+            Start Guest Session
+        </button>
+
+        <p class="modal-message" id="guestMessage"></p>
+
+    </div>
+
+</div>
+
+
+<!-- Guest Session Timer -->
+
+<div class="guest-timer" id="guestTimer">
+    <span>Guest session</span>
+    <strong id="countdown">20:00</strong>
+    <button id="endGuest">End Session</button>
+</div>
+
+
+<script src="{{ url_for('static', filename='js/home.js') }}"></script>
+
+</body>
+</html>
