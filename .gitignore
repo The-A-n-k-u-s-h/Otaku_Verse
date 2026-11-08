@@ -1,64 +1,60 @@
-# Python
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
-
+*$py.class
 *.pyo
 
+# Virtual Environments
 .venv/
 venv/
-
-# Environment secrets
-.env
 env/
 
+# Environment secrets & variables
+.env
+.env.*
+!.env.example
+
 # Local databases and runtime files
+*.db
 instance/*.db
 *.sqlite
 *.sqlite3
 
-# Editor and OS files
-.vscode/
-.DS_Store
-Thumbs.db
-.venv/
-venv/
-.gitkeep/
-
-
-# Python
-__pycache__/
-*.py[cod]
-*.pyo
-
-# Virtual Environment
-venv/
-.venv/
-env/
-
-# Environment variables
-.env
-.env.*
-
-!.env.example
-
-# Database
-*.db
-*.sqlite
-*.sqlite3
-
-# IDE
-.vscode/
-.idea/
-
-# Testing
+# Logs & testing
+*.log
 .pytest_cache/
 .coverage
 htmlcov/
 
-# Python builds
-build/
+# Python packaging & builds
 dist/
 *.egg-info/
 
-# Logs
-*.log
+# Flutter & Dart
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+build/
+
+# Android build & secrets
+android/.gradle/
+android/local.properties
+android/**/key.properties
+android/**/captures/
+android/**/outputs/
+
+# Editor & IDE configurations
+.vscode/
+.idea/
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# Repository maintenance
+.gitkeep/
+
+
+.metadata
