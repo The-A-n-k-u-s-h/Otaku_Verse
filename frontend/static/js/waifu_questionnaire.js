@@ -25,6 +25,7 @@
       $("waifu-question-category").textContent = "Your answers have been saved.";
       $("waifu-start-button").hidden = true;
       $("waifu-profile-preview").hidden = false;
+      $("waifu-result-button").hidden = false;
       loadProfiles();
       return;
     }
@@ -81,8 +82,13 @@
       });
       renderProgress(data.progress);
       renderQuestion(data.next_question);
-      if (data.completed) message("Both profile sections have been collected.");
-      else message("Answer saved. Here is your next question.");
+      if (data.completed) {
+        message("Your profiles are complete. Calculating your best match...");
+        $("waifu-result-button").hidden = false;
+        $("waifu-result-button").focus();
+      } else {
+        message("Answer saved. Here is your next question.");
+      }
     } catch (error) {
       message(error.message, true);
       document.querySelectorAll(".waifu-answer-option").forEach((button) => button.disabled = false);
@@ -115,4 +121,7 @@
     } catch (error) { message(error.message, true); }
   }
   $("waifu-start-button").addEventListener("click", start);
+  $("waifu-result-button").addEventListener("click", () => {
+    window.location.href = "/character-match/results";
+  });
 })();

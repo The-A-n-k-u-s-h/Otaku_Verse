@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Operator Control Center | OtakuVerse{% endblock %}
+{% block content %}
+<section class="ov-page-heading"><p class="ov-eyebrow">CONTROL CENTER</p><h1>Five feature operators</h1><p>Choose a feature. You will be asked for its separate access code before its dashboard opens.</p></section>
+<div class="ov-feature-grid">
+{% for key, name in features.items() %}
+  <a class="ov-feature-card" href="{{ url_for('operator.feature_access', feature=key) }}"><span class="ov-feature-index">0{{ loop.index }}</span><h2>{{ name }}</h2><p>Open the {{ name }} operator workspace.</p><span class="ov-card-link">Enter access code →</span></a>
+{% endfor %}
+</div>
+<p class="ov-inline-link"><a href="{{ url_for('operator.all_activity') }}">View all operator changes and activity</a></p>
+{% endblock %}

@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block title %}{{ feature_name }} Access | OtakuVerse{% endblock %}
+{% block content %}
+<section class="ov-auth-card"><p class="ov-eyebrow">FEATURE SECURITY</p><h1>{{ feature_name }}</h1><p>Enter the access code assigned to this feature operator.</p>
+{% if error %}<div class="ov-alert error">{{ error }}</div>{% endif %}
+<form method="post" class="ov-form"><label>Feature access code<input type="password" name="access_code" autocomplete="one-time-code" required autofocus></label><button class="ov-button" type="submit">Unlock dashboard</button></form>
+<a class="ov-back-link" href="{{ url_for('operator.select_feature') }}">← Back to all operators</a></section>
+{% endblock %}

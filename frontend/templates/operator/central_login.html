@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Operator Sign In | OtakuVerse{% endblock %}
+{% block content %}
+<section class="ov-auth-card">
+  <p class="ov-eyebrow">RESTRICTED AREA</p><h1>Operator sign in</h1>
+  <p>Enter the central operator username and master password to continue.</p>
+  {% if error %}<div class="ov-alert error">{{ error }}</div>{% endif %}
+  <form method="post" class="ov-form">
+    <label>Operator username<input name="username" autocomplete="username" required></label>
+    <label>Master password<input type="password" name="password" autocomplete="current-password" required></label>
+    <button class="ov-button" type="submit">Continue to operator portal</button>
+  </form>
+  <p class="ov-muted">Feature-specific access codes are required after sign-in.</p>
+</section>
+{% endblock %}

@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block title %}Operator Activity | OtakuVerse{% endblock %}
+{% block content %}
+<section class="ov-page-heading"><p class="ov-eyebrow">AUDIT TRAIL</p><h1>Operator change history</h1><p>Recent changes recorded by the five feature operators.</p></section>
+<div class="ov-panel">{% if activity %}<div class="ov-activity-list">{% for item in activity %}<article class="ov-activity-item"><div><strong>{{ features.get(item.feature_key, item.feature_key) }} · {{ item.action|replace('_',' ')|title }}</strong><span class="ov-muted">{{ item.created_at }}</span></div><p>{{ item.summary }}</p><small>Operator: {{ item.operator_username }}</small>{% if item.before_data or item.after_data %}<details><summary>View before and after details</summary><div class="ov-two-col"><pre>{{ item.before_data|tojson(indent=2) }}</pre><pre>{{ item.after_data|tojson(indent=2) }}</pre></div></details>{% endif %}</article>{% endfor %}</div>{% else %}<p class="ov-empty">No operator changes recorded yet.</p>{% endif %}</div>
+<a class="ov-back-link" href="{{ url_for('operator.select_feature') }}">← Operator control center</a>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}{{ feature_name }} Operator | OtakuVerse{% endblock %}
+{% block content %}
+<section class="ov-page-heading"><p class="ov-eyebrow">FEATURE OPERATOR WORKSPACE</p><h1>{{ feature_name }}</h1><p>Use this workspace to review changes and maintain an accountable activity record.</p></section>
+<div class="ov-toolbar"><a class="ov-button ov-button-quiet" href="{{ url_for('operator.select_feature') }}">Switch operator</a><a class="ov-button ov-button-quiet" href="{{ url_for('operator.all_activity') }}">All activity</a></div>
+<section class="ov-panel"><h2>Record a change</h2><p class="ov-muted">Record what you changed. Do not include passwords, API keys, private user data or other secrets.</p>
+<form id="operator-change-form" class="ov-form" data-feature="{{ feature }}">
+<label>Change type<select name="action"><option value="create">Created</option><option value="update" selected>Updated</option><option value="delete">Deleted</option><option value="approve">Approved</option><option value="reject">Rejected</option><option value="settings">Changed settings</option><option value="bugfix">Fixed a bug</option></select></label>
+<label>Change summary<textarea name="summary" rows="3" maxlength="500" placeholder="Example: Updated quiz difficulty labels and corrected the question display." required></textarea></label>
+<div class="ov-two-col"><label>Before (optional JSON)<textarea name="before" rows="4" placeholder='{"status":"draft"}'></textarea></label><label>After (optional JSON)<textarea name="after" rows="4" placeholder='{"status":"approved"}'></textarea></label></div>
+<button class="ov-button" type="submit">Save change to activity log</button><p id="operator-change-message" role="status"></p></form></section>
+<section class="ov-panel"><div class="ov-panel-heading"><h2>Recent changes</h2><span class="ov-count">{{ activity|length }} records</span></div>
+{% if activity %}<div class="ov-activity-list">{% for item in activity %}<article class="ov-activity-item"><div><strong>{{ item.action|replace('_',' ')|title }}</strong><span class="ov-muted">{{ item.created_at }}</span></div><p>{{ item.summary }}</p><small>By {{ item.operator_username }}</small></article>{% endfor %}</div>{% else %}<p class="ov-empty">No changes have been recorded for this operator yet.</p>{% endif %}</section>
+{% if feature == 'waifu' %}<section class="ov-panel"><h2>Existing Waifu management</h2><p>These links open the existing character and question management screens.</p><div class="ov-toolbar"><a href="{{ url_for('waifu_operator.dashboard') }}">Waifu database dashboard</a><a href="{{ url_for('waifu_operator.characters_page') }}">Manage characters</a><a href="{{ url_for('waifu_operator.questions_page') }}">Manage questions</a><a href="{{ url_for('waifu_ai_operator.ai_tools_page') }}">AI generation tools</a></div></section>{% endif %}
+{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='js/operator_portal.js') }}" defer></script>{% endblock %}

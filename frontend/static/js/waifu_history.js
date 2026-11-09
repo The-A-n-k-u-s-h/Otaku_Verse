@@ -93,11 +93,11 @@
         `Personality: ${snapshot.compatibility.personality_score}%`));
       detailContent.appendChild(element("p", "",
         `Romantic: ${snapshot.compatibility.romantic_score}%`));
-      detailContent.appendChild(element("h3", "", explanation.title || "Your match"));
+      detailContent.appendChild(element("h3", "", explanation.headline || "Your match"));
       detailContent.appendChild(element("p", "", explanation.summary || ""));
-      detailContent.appendChild(element("p", "", explanation.personality_fit || ""));
-      detailContent.appendChild(element("p", "", explanation.romantic_fit || ""));
-      detailContent.appendChild(element("p", "", explanation.overall_fit || ""));
+      detailContent.appendChild(element("p", "", explanation.personality_reason || ""));
+      detailContent.appendChild(element("p", "", explanation.romantic_reason || ""));
+      detailContent.appendChild(element("p", "", explanation.compatibility_message || ""));
       detailContent.appendChild(element("p", "history-disclaimer",
         explanation.caveat || "Entertainment result only."));
       dialog.showModal();

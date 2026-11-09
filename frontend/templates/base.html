@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10101b">
+  <title>{% block title %}OtakuVerse{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/operator_portal.css') }}">
+  {% block head %}{% endblock %}
+</head>
+<body>
+  <header class="ov-topbar">
+    <a class="ov-brand" href="{{ url_for('main.home') }}">OTAKU<span>VERSE</span></a>
+    <nav><a href="{{ url_for('main.home') }}">Home</a><a href="{{ url_for('operator.login') }}">Operator</a></nav>
+    {% if session.get('central_operator_authenticated') %}
+    <form method="post" action="{{ url_for('operator.logout') }}"><button class="ov-button ov-button-quiet" type="submit">Sign out</button></form>
+    {% endif %}
+  </header>
+  <main class="ov-shell">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% for category, message in messages %}<div class="ov-alert {{ category }}">{{ message }}</div>{% endfor %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </main>
+  {% block scripts %}{% endblock %}
+</body>
+</html>
