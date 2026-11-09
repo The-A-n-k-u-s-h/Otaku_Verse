@@ -19,7 +19,7 @@ class ApiService {
   Map<String, String> get _headers => {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
-        if (_sessionCookie != null) 'Cookie': _sessionCookie!,
+        'Cookie': ?_sessionCookie,
       };
 
   void _saveCookie(http.Response response) {

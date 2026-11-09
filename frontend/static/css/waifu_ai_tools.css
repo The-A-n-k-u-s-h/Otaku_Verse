@@ -1,0 +1,11 @@
+.waifu-ai-page{max-width:1100px;margin:2rem auto;padding:1.25rem;color:var(--text,#f4f4f5)}
+.waifu-ai-page header{margin-bottom:1.5rem}.waifu-ai-page h1{font-size:2rem;margin:.25rem 0}
+.waifu-ai-page .eyebrow{letter-spacing:.16em;font-size:.75rem;opacity:.7}
+.waifu-ai-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem}
+.waifu-ai-card{padding:1.25rem;border:1px solid rgba(150,150,170,.25);border-radius:16px;background:rgba(30,30,42,.72);display:grid;gap:.85rem}
+.waifu-ai-card h2{font-size:1.15rem;margin:0 0 .4rem}.waifu-ai-card label{display:grid;gap:.35rem;font-weight:600}
+.waifu-ai-card input,.waifu-ai-card select,.waifu-ai-card textarea{width:100%;padding:.7rem;border-radius:8px;border:1px solid #555;background:#171722;color:inherit}
+.waifu-ai-card button{padding:.8rem 1rem;border:0;border-radius:9px;font-weight:700;cursor:pointer}
+.waifu-ai-card button:disabled{opacity:.55;cursor:wait}.waifu-ai-card .hint{font-size:.85rem;opacity:.75;line-height:1.5}
+.waifu-ai-output{margin-top:1rem;padding:1rem;border-radius:10px;min-height:3rem;background:rgba(100,100,120,.15)}
+.waifu-ai-output[data-state=error]{color:#ffb4b4}

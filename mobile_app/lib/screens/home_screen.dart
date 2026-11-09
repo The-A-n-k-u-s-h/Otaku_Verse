@@ -312,7 +312,7 @@ class _HomeScreenState extends State<HomeScreen> {
         Text(
           'Choose an adventure. All five features are also available below.',
           style: TextStyle(
-            color: Theme.of(context).colorScheme.onSurface.withOpacity(0.65),
+            color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.65),
             fontSize: 12,
           ),
         ),
@@ -363,7 +363,7 @@ class _HomeScreenState extends State<HomeScreen> {
         Text(
           feature.description,
           style: TextStyle(
-            color: Theme.of(context).colorScheme.onSurface.withOpacity(0.75),
+            color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.75),
             height: 1.5,
           ),
         ),

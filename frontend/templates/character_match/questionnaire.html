@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Waifu Compatibility Questionnaire{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/waifu_questionnaire.css') }}">
+<section class="waifu-questionnaire" id="waifu-questionnaire">
+  <header class="waifu-questionnaire__header">
+    <p class="eyebrow">OTAKUVERSE MATCHING</p>
+    <h1>Discover your anime soulmate</h1>
+    <p>Answer honestly. Your personality and romantic preferences are measured separately.</p>
+  </header>
+  <div class="waifu-progress">
+    <div class="waifu-progress__labels"><span id="waifu-progress-label">Ready to begin</span><span id="waifu-progress-count">0 answered</span></div>
+    <div class="waifu-progress__track"><span id="waifu-progress-fill"></span></div>
+  </div>
+  <div class="waifu-question-card" id="waifu-question-card">
+    <h2 id="waifu-question-prompt">Start when you are ready</h2>
+    <p id="waifu-question-category" class="waifu-question-category"></p>
+    <div id="waifu-question-options" class="waifu-question-options"></div>
+    <button id="waifu-start-button" type="button">Start questionnaire</button>
+    <p id="waifu-question-feedback" role="status" aria-live="polite"></p>
+  </div>
+  <section class="waifu-profile-preview" id="waifu-profile-preview" hidden>
+    <h2>Your two profiles</h2>
+    <p>Your answers are being grouped into personality and romantic preference traits. The final compatibility calculation comes in a later module.</p>
+    <div class="waifu-profile-columns">
+      <div><h3>Personality profile</h3><div id="waifu-personality-scores"></div></div>
+      <div><h3>Romantic preference profile</h3><div id="waifu-romantic-scores"></div></div>
+    </div>
+  </section>
+</section>
+<script src="{{ url_for('static', filename='js/waifu_questionnaire.js') }}" defer></script>
+{% endblock %}

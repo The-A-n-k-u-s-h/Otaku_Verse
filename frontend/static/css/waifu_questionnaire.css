@@ -1,0 +1,18 @@
+.waifu-questionnaire{max-width:900px;margin:2rem auto;padding:1.25rem;color:var(--text,#f4f4f5)}
+.waifu-questionnaire__header{text-align:center;margin-bottom:2rem}.waifu-questionnaire h1{font-size:clamp(1.8rem,4vw,2.8rem)}
+.waifu-questionnaire .eyebrow{letter-spacing:.16em;font-size:.75rem;opacity:.7}
+.waifu-progress{margin:1.5rem 0}.waifu-progress__labels{display:flex;justify-content:space-between;gap:1rem;font-size:.9rem;margin-bottom:.5rem}
+.waifu-progress__track{height:8px;border-radius:20px;background:rgba(150,150,170,.25);overflow:hidden}
+.waifu-progress__track span{display:block;height:100%;width:0;background:#a78bfa;transition:width .25s}
+.waifu-question-card{padding:clamp(1rem,3vw,2rem);border:1px solid rgba(150,150,170,.3);border-radius:18px;background:rgba(30,30,42,.75)}
+.waifu-question-card h2{font-size:1.35rem;line-height:1.5}.waifu-question-category{opacity:.7;font-size:.9rem}
+.waifu-question-options{display:grid;gap:.7rem;margin:1.25rem 0}
+.waifu-answer-option,.waifu-question-card>button{width:100%;padding:.9rem 1rem;text-align:left;border:1px solid rgba(150,150,170,.35);border-radius:10px;background:rgba(100,100,130,.12);color:inherit;cursor:pointer}
+.waifu-answer-option:hover{border-color:#a78bfa;background:rgba(167,139,250,.12)}
+.waifu-answer-option:disabled{opacity:.55;cursor:wait}
+.waifu-question-card>button{background:#8b5cf6;border:0;text-align:center;font-weight:700}
+#waifu-question-feedback[data-state=error]{color:#ffaaaa}
+.waifu-profile-preview{margin-top:1.5rem;padding:1.25rem;border-radius:16px;background:rgba(40,40,55,.6)}
+.waifu-profile-columns{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+.waifu-profile-columns>div{padding:1rem;border:1px solid rgba(150,150,170,.25);border-radius:12px}
+.waifu-score-row{display:flex;justify-content:space-between;gap:1rem;padding:.55rem 0;border-bottom:1px solid rgba(150,150,170,.18);text-transform:capitalize}

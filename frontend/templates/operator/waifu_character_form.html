@@ -1,0 +1,18 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{% if character %}Edit{% else %}Add{% endif %} Character | OtakuVerse</title><link rel="stylesheet" href="{{ url_for('static',filename='css/waifu_admin.css') }}"></head><body class="admin-body">
+<header class="admin-top"><a class="brand" href="{{ url_for('waifu_operator.characters_page') }}">← Characters</a></header><main class="admin-wrap form-wrap"><p class="eyebrow">MODULE 1 · CHARACTER PROFILE</p><h1>{% if character %}Edit character{% else %}Add female anime character{% endif %}</h1>
+<p class="muted">New and edited profiles are saved as drafts. Add at least one source and traits from both profiles before approval.</p>
+<form id="characterForm" data-id="{{ character.id if character else '' }}">
+<div class="form-grid"><label>Character name *<input name="name" required maxlength="150" value="{{character.name if character else ''}}"></label>
+<label>Anime title *<input name="anime_title" required maxlength="200" value="{{character.anime_title if character else ''}}"></label>
+<label>Aliases<input name="aliases" value="{{character.aliases if character else ''}}"></label>
+<label>Image URL<input name="image_url" type="url" value="{{character.image_url if character else ''}}"></label>
+<label>Image source URL<input name="image_source_url" type="url" value="{{character.image_source_url if character else ''}}"></label>
+<label>Short description<input name="description" maxlength="1000" value="{{character.description if character else ''}}"></label></div>
+<label>Biography<textarea name="biography" rows="3">{{character.biography if character else ''}}</textarea></label>
+<h2>Personality traits</h2><div class="trait-grid">{% for key,label in personality_traits.items() %}<label>{{label}} <input type="number" min="0" max="100" data-profile="personality" data-trait="{{key}}" value="{{ character.traits.personality[key].score if character and key in character.traits.personality else 50 }}"></label>{% endfor %}</div>
+<h2>Romantic traits</h2><div class="trait-grid">{% for key,label in romantic_traits.items() %}<label>{{label}} <input type="number" min="0" max="100" data-profile="romantic" data-trait="{{key}}" value="{{ character.traits.romantic[key].score if character and key in character.traits.romantic else 50 }}"></label>{% endfor %}</div>
+<h2>Verification sources</h2><p class="muted small">At least one verified source is required for approval. Add sources in the format: one per line, Source name | URL | verified</p>
+<textarea name="sources" rows="4" placeholder="Official character page | https://example.com/character | yes">{% if character %}{% for s in character.sources %}{{s.source_name}} | {{s.source_url}} | {{'yes' if s.verified else 'no'}}
+{% endfor %}{% endif %}</textarea>
+<div id="formMessage" class="form-message"></div><div class="form-actions"><button class="btn primary" type="submit">Save draft</button><a class="btn" href="{{ url_for('waifu_operator.characters_page') }}">Cancel</a></div></form></main>
+<script>window.WAIFU_FORM_KIND='character';</script><script src="{{url_for('static',filename='js/waifu_admin.js')}}"></script><script src="{{url_for('static',filename='js/waifu_forms.js')}}"></script></body></html>

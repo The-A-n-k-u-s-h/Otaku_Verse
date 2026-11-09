@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/waifu_history.css') }}">
+
+<main class="waifu-history">
+  <header class="history-header">
+    <div>
+      <p class="history-eyebrow">YOUR JOURNEY</p>
+      <h1>Match History</h1>
+      <p>Revisit the anime characters you have matched with.</p>
+    </div>
+    <button id="clear-history" class="history-danger" type="button">Clear history</button>
+  </header>
+
+  <p id="history-status" class="history-status" role="status" aria-live="polite">
+    Loading your history...
+  </p>
+
+  <section id="history-list" class="history-grid" aria-live="polite"></section>
+
+  <dialog id="history-detail-dialog" class="history-dialog">
+    <button id="close-history-detail" class="dialog-close" type="button"
+            aria-label="Close details">×</button>
+    <div id="history-detail-content"></div>
+  </dialog>
+</main>
+
+<script src="{{ url_for('static', filename='js/waifu_history.js') }}" defer></script>
+{% endblock %}

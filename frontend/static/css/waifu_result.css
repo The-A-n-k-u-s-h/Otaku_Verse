@@ -1,0 +1,104 @@
+.waifu-result-page {
+  width: min(1100px, 92%);
+  margin: 40px auto;
+  color: #f8fafc;
+}
+
+.result-panel,
+.explanation-card,
+.character-card,
+.score-card {
+  background: #151525;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  padding: 24px;
+}
+
+.result-heading {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.result-heading h1 {
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  margin: 8px 0;
+}
+
+.eyebrow {
+  letter-spacing: 0.18em;
+  color: #c4b5fd;
+  font-weight: 700;
+}
+
+.character-card {
+  display: grid;
+  grid-template-columns: minmax(180px, 320px) 1fr;
+  gap: 26px;
+  align-items: center;
+}
+
+.character-card img {
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.character-info h2 {
+  font-size: 2rem;
+  margin-top: 0;
+}
+
+.score-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 22px 0;
+}
+
+.score-card {
+  text-align: center;
+}
+
+.score-card span {
+  display: block;
+  color: #cbd5e1;
+}
+
+.score-card strong {
+  display: block;
+  font-size: 2rem;
+  margin-top: 8px;
+  color: #c4b5fd;
+}
+
+.explanation-card {
+  line-height: 1.7;
+}
+
+.explanation-card h2 {
+  margin-top: 0;
+}
+
+.result-disclaimer {
+  color: #94a3b8;
+  font-size: 0.85rem;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+@media (max-width: 700px) {
+  .character-card {
+    grid-template-columns: 1fr;
+  }
+
+  .character-card img {
+    max-height: 360px;
+  }
+
+  .score-grid {
+    grid-template-columns: 1fr;
+  }
+}

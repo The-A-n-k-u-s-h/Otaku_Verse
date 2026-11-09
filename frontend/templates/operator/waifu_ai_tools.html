@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}AI Generation Tools{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/waifu_ai_tools.css') }}">
+<section class="waifu-ai-page">
+  <header><p class="eyebrow">OPERATOR WORKSPACE</p><h1>AI Generation Studio</h1>
+    <p>Generate reviewable drafts. Nothing is published automatically.</p></header>
+  <div class="waifu-ai-grid">
+    <form id="waifu-question-generator" class="waifu-ai-card">
+      <h2>Module 3: AI Question Generator</h2>
+      <label>Topic<input name="topic" required maxlength="120" placeholder="e.g. handling disagreements"></label>
+      <label>Profile type<select name="profile_type"><option value="personality">Personality</option><option value="romantic">Romantic preference</option></select></label>
+      <label>Trait key<input name="trait_key" required placeholder="e.g. communication"></label>
+      <label>Number of drafts<input name="count" type="number" min="1" max="8" value="3"></label>
+      <button type="submit">Generate question drafts</button>
+      <p class="hint">Drafts are saved as Draft. Review and submit them for approval in Question Bank.</p>
+    </form>
+    <form id="waifu-character-discovery" class="waifu-ai-card">
+      <h2>Module 4: AI Character Discovery</h2>
+      <label>Anime title<input name="anime_title" required maxlength="200" placeholder="e.g. Your Lie in April"></label>
+      <label>Number of candidates<input name="count" type="number" min="1" max="8" value="3"></label>
+      <label>Research notes<textarea name="notes" rows="4" placeholder="Optional character criteria or context"></textarea></label>
+      <button type="submit">Discover character drafts</button>
+      <p class="hint">Candidates are saved as Draft. AI-suggested sources and image URLs are not trusted until manually checked.</p>
+    </form>
+  </div>
+  <div id="waifu-ai-output" class="waifu-ai-output" aria-live="polite"></div>
+</section>
+<script src="{{ url_for('static', filename='js/waifu_ai_tools.js') }}" defer></script>
+{% endblock %}

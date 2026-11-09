@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Operator Login | OtakuVerse</title><link rel="stylesheet" href="{{ url_for('static',filename='css/waifu_admin.css') }}"></head>
+<body class="admin-body"><main class="login-card"><a class="brand" href="/">OTAKUVERSE</a><h1>Waifu Management</h1><p>Operator sign in</p>
+{% if error %}<div class="notice error">{{ error }}</div>{% endif %}
+<form method="post"><label>Username<input name="username" required autocomplete="username"></label>
+<label>Password<input type="password" name="password" required autocomplete="current-password"></label>
+<button class="btn primary" type="submit">Sign in</button></form>
+<p class="muted small">Configure OPERATOR_USERNAME and OPERATOR_PASSWORD in your environment before signing in.</p></main></body></html>

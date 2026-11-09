@@ -31,13 +31,13 @@ class FeatureCard extends StatelessWidget {
           border: Border.all(
             color: selected
                 ? const Color(0xFFA879FF)
-                : Colors.white.withOpacity(0.12),
+                : Colors.white.withValues(alpha: 0.12),
             width: selected ? 1.5 : 1,
           ),
           boxShadow: selected
               ? [
                   BoxShadow(
-                    color: const Color(0xFF9B70FF).withOpacity(0.18),
+                    color: const Color(0xFF9B70FF).withValues(alpha: 0.18),
                     blurRadius: 22,
                   ),
                 ]
@@ -71,14 +71,14 @@ class FeatureCard extends StatelessWidget {
                   end: Alignment.bottomCenter,
                   colors: selected
                       ? [
-                          Colors.black.withOpacity(0.05),
-                          Colors.black.withOpacity(0.35),
-                          Colors.black.withOpacity(0.95),
+                          Colors.black.withValues(alpha: 0.05),
+                          Colors.black.withValues(alpha: 0.35),
+                          Colors.black.withValues(alpha: 0.95),
                         ]
                       : [
-                          Colors.black.withOpacity(0.12),
+                          Colors.black.withValues(alpha: 0.12),
                           Colors.transparent,
-                          Colors.black.withOpacity(0.25),
+                          Colors.black.withValues(alpha: 0.25),
                         ],
                 ),
               ),

@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/waifu_result.css') }}">
+<main class="waifu-result-page">
+  <section id="waifu-result-loading" class="result-panel">
+    <h1>Finding your anime soulmate...</h1>
+    <p>We are preparing your compatibility result.</p>
+  </section>
+
+  <section id="waifu-result-error" class="result-panel" hidden>
+    <h1>We could not load your result</h1>
+    <p id="waifu-result-error-message"></p>
+    <a href="{{ url_for('main.index') }}">Return to home</a>
+  </section>
+
+  <section id="waifu-result-content" hidden>
+    <header class="result-heading">
+      <p class="eyebrow">YOUR ANIME SOULMATE</p>
+      <h1 id="match-headline">Your best match</h1>
+      <p id="match-summary"></p>
+    </header>
+
+    <article class="character-card">
+      <img id="match-image" alt="Matched anime character" src="">
+      <div class="character-info">
+        <h2 id="match-name"></h2>
+        <p id="match-anime"></p>
+        <p id="match-description"></p>
+        <p id="match-biography"></p>
+      </div>
+    </article>
+
+    <section class="score-grid" aria-label="Compatibility scores">
+      <div class="score-card">
+        <span>Overall match</span>
+        <strong id="score-overall">0%</strong>
+      </div>
+      <div class="score-card">
+        <span>Personality</span>
+        <strong id="score-personality">0%</strong>
+      </div>
+      <div class="score-card">
+        <span>Romantic preferences</span>
+        <strong id="score-romantic">0%</strong>
+      </div>
+    </section>
+
+    <section class="explanation-card">
+      <h2>Why you match</h2>
+      <h3>Personality connection</h3>
+      <p id="personality-reason"></p>
+      <h3>Romantic compatibility</h3>
+      <p id="romantic-reason"></p>
+      <h3>Your strongest connections</h3>
+      <ul id="strongest-connections"></ul>
+      <p id="compatibility-message"></p>
+      <p class="result-disclaimer">
+        This is an entertainment-based character match, not a scientific assessment.
+      </p>
+    </section>
+  </section>
+</main>
+<script src="{{ url_for('static', filename='js/waifu_result.js') }}" defer></script>
+{% endblock %}
