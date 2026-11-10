@@ -102,3 +102,19 @@
     grid-template-columns: 1fr;
   }
 }
+.match-media {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.match-media img {
+  display: block;
+  width: min(100%, 360px);
+  max-height: 520px;
+  object-fit: contain;
+  border-radius: 16px;
+}
+.match-media img[hidden] { display: none !important; }

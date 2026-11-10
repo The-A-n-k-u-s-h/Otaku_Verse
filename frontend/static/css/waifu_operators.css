@@ -1,0 +1,108 @@
+/* OPERATOR FORM CONTAINER */
+.operator-create {
+  background: linear-gradient(145deg, #181628, #11101d);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 24px;
+  margin: 24px 0 32px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.operator-create form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  align-items: end;
+}
+
+.operator-create label {
+  display: grid;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #a5a1b8;
+}
+
+.operator-create input,
+.operator-create select {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #0d0c15;
+  color: #f5f3ff;
+  font-family: inherit;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.operator-create input:focus,
+.operator-create select:focus {
+  border-color: #a372ff;
+  box-shadow: 0 0 0 3px rgba(163, 114, 255, 0.2);
+}
+
+/* OPERATOR TABLE */
+.operator-table {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  background: #11101b;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  margin-top: 20px;
+}
+
+.operator-table table {
+  width: 100%;
+  border-collapse: collapse;
+  white-space: nowrap;
+}
+
+.operator-table thead {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.operator-table th {
+  text-align: left;
+  padding: 14px 18px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #a5a1b8;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.operator-table td {
+  text-align: left;
+  padding: 14px 18px;
+  font-size: 14px;
+  color: #f5f3ff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.operator-table tbody tr {
+  transition: background 0.15s ease;
+}
+
+.operator-table tbody tr:hover {
+  background: rgba(163, 114, 255, 0.06);
+}
+
+.operator-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* RESPONSIVE */
+@media (max-width: 650px) {
+  .operator-create {
+    padding: 18px;
+  }
+
+  .operator-create form {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}

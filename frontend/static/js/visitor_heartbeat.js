@@ -1,0 +1,1 @@
+(function(){async function beat(){try{await fetch("/operator/api/visitor-heartbeat",{method:"POST",credentials:"same-origin",keepalive:true,headers:{"X-Requested-With":"XMLHttpRequest"}})}catch(e){}}beat();setInterval(beat,15000);document.addEventListener("visibilitychange",()=>{if(!document.hidden)beat()})})();

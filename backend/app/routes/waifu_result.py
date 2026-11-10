@@ -37,6 +37,7 @@ def generate_result():
                 "name": character["name"],
                 "anime_title": character["anime_title"],
                 "image_url": character.get("image_url", ""),
+                "gif_url": character.get("gif_url", ""),
                 "description": character.get("description", "")
             },
             "compatibility": {
@@ -61,7 +62,8 @@ def generate_result():
                     "anime_title": character["anime_title"],
                     "description": character.get("description", ""),
                     "biography": character.get("biography", ""),
-                    "image_url": character.get("image_url", "")
+                    "image_url": character.get("image_url", ""),
+                    "gif_url": character.get("gif_url", "")
                 },
                 "compatibility": {
                     "overall": match_result["compatibility_score"],

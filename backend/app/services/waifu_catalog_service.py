@@ -5,6 +5,16 @@ from app.utils.waifu_validation import (
     ALL_TRAITS, STATUSES
 )
 
+def _sync_json_bank():
+    """Best-effort JSON snapshot after a committed catalog change."""
+    try:
+        from app.services.waifu_json_bank import export_bank
+        export_bank()
+    except Exception as exc:
+        # Database CRUD remains successful, while the sync error is visible in logs.
+        import logging
+        logging.getLogger(__name__).exception("Waifu JSON bank sync failed: %s", exc)
+
 def _character_dict(row):
     data = dict(row)
     db = get_db()
@@ -56,22 +66,24 @@ def create_character(data, actor="operator"):
     while db.execute("SELECT 1 FROM waifu_characters WHERE slug=?", (slug,)).fetchone():
         slug = f"{slug_base}-{suffix}"; suffix += 1
     image_url = validate_http_url(data.get("image_url"), "Image URL")
+    gif_url = validate_http_url(data.get("gif_url"), "GIF URL")
     image_source = validate_http_url(data.get("image_source_url"), "Image source URL")
     sources = data.get("sources", [])
     if not isinstance(sources, list):
         raise ValueError("Sources must be a list.")
     cur = db.execute("""
         INSERT INTO waifu_characters
-        (name,slug,anime_title,aliases,description,biography,image_url,image_source_url,status,verification_status,created_by)
-        VALUES (?,?,?,?,?,?,?,?, 'draft','unverified',?)
+        (name,slug,anime_title,aliases,description,biography,image_url,gif_url,image_source_url,status,verification_status,created_by)
+        VALUES (?,?,?,?,?,?,?,?,?, 'draft','unverified',?)
     """, (name, slug, anime, clean_text(data.get("aliases"), "Aliases", 500),
           clean_text(data.get("description"), "Description", 1000),
           clean_text(data.get("biography"), "Biography", 5000),
-          image_url, image_source, actor))
+          image_url, gif_url, image_source, actor))
     cid = cur.lastrowid
     _save_character_traits(db, cid, traits)
     _save_sources(db, cid, sources)
     db.commit()
+    _sync_json_bank()
     return get_character(cid)
 
 def update_character(character_id, data):
@@ -86,7 +98,7 @@ def update_character(character_id, data):
     }))
     db.execute("""
         UPDATE waifu_characters SET name=?, anime_title=?, aliases=?, description=?, biography=?,
-        image_url=?, image_source_url=?, verification_status='unverified', status='draft',
+        image_url=?, gif_url=?, image_source_url=?, verification_status='unverified', status='draft',
         reviewed_by=NULL, reviewed_at=NULL, rejection_reason=NULL, updated_at=CURRENT_TIMESTAMP
         WHERE id=?
     """, (name, anime,
@@ -94,6 +106,7 @@ def update_character(character_id, data):
           clean_text(data.get("description", existing["description"]), "Description", 1000),
           clean_text(data.get("biography", existing["biography"]), "Biography", 5000),
           validate_http_url(data.get("image_url", existing["image_url"]), "Image URL"),
+          validate_http_url(data.get("gif_url", existing.get("gif_url", "")), "GIF URL"),
           validate_http_url(data.get("image_source_url", existing["image_source_url"]), "Image source URL"),
           character_id))
     db.execute("DELETE FROM character_traits WHERE character_id=?", (character_id,))
@@ -102,6 +115,7 @@ def update_character(character_id, data):
         db.execute("DELETE FROM character_sources WHERE character_id=?", (character_id,))
         _save_sources(db, character_id, data["sources"])
     db.commit()
+    _sync_json_bank()
     return get_character(character_id)
 
 def _save_character_traits(db, cid, traits):
@@ -151,13 +165,16 @@ def set_character_status(character_id, status, actor, reason=""):
         rejection_reason=?, updated_at=CURRENT_TIMESTAMP WHERE id=?
     """, (status, actor, clean_text(reason, "Reason", 1000), character_id))
     db.commit()
+    _sync_json_bank()
     return True
 
 def delete_character(character_id):
     db = get_db()
     cur = db.execute("DELETE FROM waifu_characters WHERE id=?", (character_id,))
     db.commit()
-    return cur.rowcount > 0
+    changed = cur.rowcount > 0
+    if changed: _sync_json_bank()
+    return changed
 
 def list_questions(status=None, search=None, approved_only=False):
     db = get_db()
@@ -210,6 +227,7 @@ def create_question(data, actor="operator"):
         db.execute("INSERT INTO question_trait_mappings(option_id,trait_key,score_value) VALUES(?,?,?)",
                    (cur2.lastrowid,trait_key,option["score"]))
     db.commit()
+    _sync_json_bank()
     return get_question(qid)
 
 def update_question(question_id,data):
@@ -238,6 +256,7 @@ def update_question(question_id,data):
         db.execute("INSERT INTO question_trait_mappings(option_id,trait_key,score_value) VALUES(?,?,?)",
                    (cur.lastrowid,trait_key,option["score"]))
     db.commit()
+    _sync_json_bank()
     return get_question(question_id)
 
 def set_question_status(question_id,status,actor,reason=""):
@@ -254,10 +273,13 @@ def set_question_status(question_id,status,actor,reason=""):
         rejection_reason=?,updated_at=CURRENT_TIMESTAMP WHERE id=?
     """,(status,actor,clean_text(reason,"Reason",1000),question_id))
     db.commit()
+    _sync_json_bank()
     return True
 
 def delete_question(question_id):
     db=get_db()
     cur=db.execute("DELETE FROM matching_questions WHERE id=?",(question_id,))
     db.commit()
-    return cur.rowcount>0
+    changed = cur.rowcount > 0
+    if changed: _sync_json_bank()
+    return changed

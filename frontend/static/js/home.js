@@ -1,7 +1,8 @@
 const modal = document.getElementById("guestModal");
 const openButtons = [
     document.getElementById("openGuestModal"),
-    document.getElementById("openGuestModalBottom")
+    document.getElementById("openGuestModalBottom"),
+    document.getElementById("openGuestModalNav")
 ].filter(Boolean); // Filter out any elements that don't exist in the DOM
 
 const closeButton = document.getElementById("closeGuestModal");

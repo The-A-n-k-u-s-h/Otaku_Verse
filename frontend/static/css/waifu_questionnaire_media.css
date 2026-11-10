@@ -1,0 +1,85 @@
+/* QUESTION MEDIA CONTAINER */
+.waifu-media-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1.25rem 0;
+  width: 100%;
+}
+
+/* MAIN QUESTION IMAGE */
+.waifu-question-media {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  max-height: 340px;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #11101b;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* AUDIO PLAYER STYLING */
+.waifu-audio {
+  width: 100%;
+  max-width: 520px;
+  height: 42px;
+  border-radius: 24px;
+  outline: none;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.25));
+}
+
+/* FALLBACK BOX WHEN MEDIA FAILS/MISSING */
+.waifu-media-fallback {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1.25rem;
+  font-size: 0.85rem;
+  color: #a5a1b8;
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* ANSWER OPTION WRAPPER */
+.waifu-answer-option {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.75rem;
+  text-align: left;
+  width: 100%;
+}
+
+/* ANSWER OPTION MEDIA */
+.waifu-answer-media {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.waifu-answer-media img {
+  display: block;
+  width: 100%;
+  height: 180px;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #11101b;
+  transition: transform 0.3s ease;
+}
+
+.waifu-answer-option:hover .waifu-answer-media img {
+  transform: scale(1.03);
+}
+
+.waifu-answer-media audio {
+  width: 100%;
+  height: 38px;
+  border-radius: 20px;
+  margin-top: 4px;
+}

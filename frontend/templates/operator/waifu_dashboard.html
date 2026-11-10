@@ -8,4 +8,11 @@
 <a class="admin-card" href="{{ url_for('waifu_ai_operator.ai_tools_page') }}"><span>03</span><h2>AI Generation Studio</h2><p>Generate question drafts and discover female anime character candidates with AI. All drafts require operator review.</p><b>Open AI tools →</b></a>
 <a class="admin-card" href="{{ url_for('waifu_operator.questions_page', status='pending_review') }}"><span>04</span><h2>Question Review</h2><p>Open questions awaiting review and approval.</p><b>Review questions →</b></a>
 <a class="admin-card" href="{{ url_for('waifu_operator.characters_page', status='pending_review') }}"><span>05</span><h2>Character Review</h2><p>Check character candidates, verify sources and approve eligible profiles.</p><b>Review characters →</b></a></div>
-<div class="notice">Only approved characters and questions are exposed through the public matching APIs. Editing an approved record returns it to draft for review.</div></main></body></html>
+<div class="notice">Only approved characters and questions are exposed through the public matching APIs. Editing an approved record returns it to draft for review.</div><section class="admin-card"><h2>Question bank JSON</h2>
+<p>Export the current question and character bank, or validate a manually edited JSON file before importing it.</p>
+<a class="btn" href="{{ url_for('waifu_json.download_json_bank') }}">Download JSON bank</a>
+<label for="waifuJsonFile">Import JSON file</label><input id="waifuJsonFile" type="file" accept=".json,application/json">
+<button class="btn" type="button" id="waifuJsonPreview">Validate and preview</button>
+<button class="btn primary" type="button" id="waifuJsonApply" disabled>Import as drafts</button>
+<pre id="waifuJsonMessage" aria-live="polite"></pre></section>
+<script src="{{ url_for('static',filename='js/waifu_json_admin.js') }}"></script></main></body></html>

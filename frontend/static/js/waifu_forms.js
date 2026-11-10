@@ -19,7 +19,7 @@
       const payload = {
         name:form.get("name"), anime_title:form.get("anime_title"), aliases:form.get("aliases"),
         description:form.get("description"), biography:form.get("biography"),
-        image_url:form.get("image_url"), image_source_url:form.get("image_source_url"),
+        image_url:form.get("image_url"), gif_url:form.get("gif_url"), image_source_url:form.get("image_source_url"),
         traits, sources
       };
       try {
@@ -57,7 +57,7 @@
     document.getElementById("addOption").addEventListener("click",()=>{
       if(optionRows.children.length>=8) return showMessage("Maximum 8 options allowed.",true);
       const row=document.createElement("div"); row.className="option-row";
-      row.innerHTML='<input class="option-text" placeholder="Answer option" required><input class="option-score" type="number" min="0" max="100" value="50" required><button type="button" class="btn small danger">Remove</button>';
+      row.innerHTML='<input class="option-text" placeholder="Answer option" required><input class="option-image" type="url" placeholder="Answer image URL"><input class="option-gif" type="url" placeholder="Answer GIF URL"><input class="option-audio" type="url" placeholder="Answer audio URL"><input class="option-score" type="number" min="0" max="100" value="50" required><button type="button" class="btn small danger">Remove</button>';
       row.querySelector("button").addEventListener("click",()=>row.remove()); optionRows.appendChild(row);
     });
     questionForm.addEventListener("submit",async event=>{
@@ -65,12 +65,18 @@
       const form=new FormData(questionForm);
       const options=[...optionRows.querySelectorAll(".option-row")].map(row=>({
         text:row.querySelector(".option-text").value.trim(),
-        score:Number(row.querySelector(".option-score").value)
+        score:Number(row.querySelector(".option-score").value),
+        image_url:row.querySelector(".option-image")?.value.trim() || "",
+        gif_url:row.querySelector(".option-gif")?.value.trim() || "",
+        audio_url:row.querySelector(".option-audio")?.value.trim() || ""
       }));
       const payload={
         prompt:form.get("prompt"),category:form.get("category"),profile_type:form.get("profile_type"),
         trait_key:form.get("trait_key"),explanation:form.get("explanation"),
-        display_order:Number(form.get("display_order")||0),is_required:form.get("is_required")==="on",options
+        display_order:Number(form.get("display_order")||0),is_required:form.get("is_required")==="on",options,
+        image_url:form.get("image_url"),gif_url:form.get("gif_url"),audio_url:form.get("audio_url"),
+        image_source_url:form.get("image_source_url"),difficulty:form.get("difficulty"),
+        scheduled_start_at:form.get("scheduled_start_at") || null,scheduled_end_at:form.get("scheduled_end_at") || null
       };
       try {
         const id=questionForm.dataset.id;

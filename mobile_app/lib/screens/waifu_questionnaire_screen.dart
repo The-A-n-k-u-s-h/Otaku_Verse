@@ -1,3 +1,4 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import '../models/waifu_question_model.dart';
 import '../services/waifu_service.dart';
@@ -13,6 +14,7 @@ class WaifuQuestionnaireScreen extends StatefulWidget {
 
 class _WaifuQuestionnaireScreenState extends State<WaifuQuestionnaireScreen> {
   final WaifuService _service = WaifuService.instance;
+  final AudioPlayer _audioPlayer = AudioPlayer();
   WaifuQuestion? _question;
   WaifuProgress? _progress;
   int? _selectedOptionId;
@@ -24,6 +26,25 @@ class _WaifuQuestionnaireScreenState extends State<WaifuQuestionnaireScreen> {
 
   String _cleanError(Object error) =>
       error.toString().replaceFirst('Exception: ', '');
+
+  @override
+  void dispose() {
+    _audioPlayer.dispose();
+    super.dispose();
+  }
+
+  Future<void> _playAudio(String url) async {
+    if (url.isEmpty) return;
+    try {
+      await _audioPlayer.stop();
+      await _audioPlayer.play(UrlSource(url));
+    } catch (error) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Could not play audio: $error')),
+      );
+    }
+  }
 
   Future<void> _start() async {
     setState(() {
@@ -104,119 +125,231 @@ class _WaifuQuestionnaireScreenState extends State<WaifuQuestionnaireScreen> {
   }
 
   Future<void> _openResult() async {
-    await Navigator.of(context).push(MaterialPageRoute(
-      builder: (_) => const WaifuResultScreen()));
+    await Navigator.of(context).push(
+      MaterialPageRoute(builder: (_) => const WaifuResultScreen()),
+    );
+  }
+
+  Widget _media(WaifuMedia media, {double height = 190}) {
+    final visual = media.visualUrl;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        if (visual.isNotEmpty)
+          ClipRRect(
+            borderRadius: BorderRadius.circular(14),
+            child: Image.network(
+              visual,
+              height: height,
+              fit: BoxFit.cover,
+              errorBuilder: (_, _, _) => Container(
+                height: height,
+                alignment: Alignment.center,
+                color: Theme.of(context).colorScheme.surfaceContainerHighest,
+                child: const Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(Icons.broken_image_outlined),
+                    SizedBox(height: 5),
+                    Text('Media unavailable'),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        if (media.audioUrl.isNotEmpty)
+          Align(
+            alignment: Alignment.centerLeft,
+            child: TextButton.icon(
+              onPressed: () => _playAudio(media.audioUrl),
+              icon: const Icon(Icons.volume_up),
+              label: const Text('Play audio'),
+            ),
+          ),
+      ],
+    );
   }
 
   Widget _progressCard() {
     final p = _progress!;
-    return Card(child: Padding(
-      padding: const EdgeInsets.all(16),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-          const Text('Your progress', style: TextStyle(fontWeight: FontWeight.bold)),
-          Text('${p.answered}/${p.availableQuestions}'),
-        ]),
-        const SizedBox(height: 10),
-        LinearProgressIndicator(value: p.fraction),
-        Wrap(spacing: 8, children: [
-          Chip(label: Text('Personality: ${p.personalityAnswers}')),
-          Chip(label: Text('Romantic: ${p.romanticAnswers}')),
-        ]),
-      ]),
-    ));
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+              const Text('Your progress',
+                  style: TextStyle(fontWeight: FontWeight.bold)),
+              Text('${p.answered}/${p.availableQuestions}'),
+            ]),
+            const SizedBox(height: 10),
+            LinearProgressIndicator(value: p.fraction),
+            Wrap(spacing: 8, children: [
+              Chip(label: Text('Personality: ${p.personalityAnswers}')),
+              Chip(label: Text('Romantic: ${p.romanticAnswers}')),
+            ]),
+          ],
+        ),
+      ),
+    );
   }
 
   Widget _questionCard() {
     final q = _question;
     if (q == null) {
-      return const Card(child: Padding(
-      padding: EdgeInsets.all(16),
-      child: Text('No approved unanswered questions are available. Ask the operator to approve questions for both profiles.'),
-    ));
-    }
-    return Card(child: Padding(
-      padding: const EdgeInsets.all(18),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Text(q.profileType.toUpperCase(),
-          style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.deepPurple)),
-        const SizedBox(height: 10),
-        Text(q.prompt, style: Theme.of(context).textTheme.titleLarge),
-        const SizedBox(height: 12),
-        for (final option in q.options)
-          RadioListTile<int>(
-            value: option.id,
-            groupValue: _selectedOptionId,
-            title: Text(option.text),
-            onChanged: _loading ? null : (value) =>
-              setState(() => _selectedOptionId = value),
-          ),
-        FilledButton(
-          onPressed: _loading || _selectedOptionId == null ? null : _submit,
-          child: _loading ? const CircularProgressIndicator()
-              : const Text('Submit answer'),
+      return const Card(
+        child: Padding(
+          padding: EdgeInsets.all(16),
+          child: Text('No approved unanswered questions are available. Ask the operator to approve questions for both profiles.'),
         ),
-      ]),
-    ));
+      );
+    }
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(18),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(q.profileType.toUpperCase(),
+                style: const TextStyle(
+                    fontWeight: FontWeight.bold, color: Colors.deepPurple)),
+            if (q.difficulty.isNotEmpty)
+              Text('Difficulty: ${q.difficulty}',
+                  style: Theme.of(context).textTheme.labelSmall),
+            const SizedBox(height: 10),
+            Text(q.prompt, style: Theme.of(context).textTheme.titleLarge),
+            _media(q.media, height: 210),
+            const SizedBox(height: 8),
+            for (final option in q.options)
+              Card(
+                child: RadioListTile<int>(
+                  value: option.id,
+                  groupValue: _selectedOptionId,
+                  onChanged: _loading
+                      ? null
+                      : (value) => setState(() => _selectedOptionId = value),
+                  title: Text(option.text),
+                  subtitle: option.media.visualUrl.isEmpty &&
+                          option.media.audioUrl.isEmpty
+                      ? null
+                      : Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            if (option.media.visualUrl.isNotEmpty)
+                              _media(option.media, height: 135),
+                            if (option.media.visualUrl.isEmpty &&
+                                option.media.audioUrl.isNotEmpty)
+                              TextButton.icon(
+                                onPressed: () =>
+                                    _playAudio(option.media.audioUrl),
+                                icon: const Icon(Icons.volume_up),
+                                label: const Text('Play answer audio'),
+                              ),
+                          ],
+                        ),
+                ),
+              ),
+            const SizedBox(height: 10),
+            SizedBox(
+              width: double.infinity,
+              child: FilledButton(
+                onPressed:
+                    _loading || _selectedOptionId == null ? null : _submit,
+                child: _loading
+                    ? const SizedBox(
+                        width: 20,
+                        height: 20,
+                        child: CircularProgressIndicator(strokeWidth: 2),
+                      )
+                    : const Text('Submit answer'),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 
   Widget _completedCard() {
     final profiles = _profiles;
-    return Card(child: Padding(
-      padding: const EdgeInsets.all(16),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        const Icon(Icons.check_circle, color: Colors.green, size: 40),
-        Text('Your profiles are complete',
-          style: Theme.of(context).textTheme.titleLarge),
-        const Text('Your personality and romantic preference profiles have been saved by the backend.'),
-        if (profiles != null)
-          for (final type in ['personality', 'romantic'])
-            ExpansionTile(
-              title: Text(type == 'personality' ? 'Personality profile' : 'Romantic profile'),
-              children: [
-                if (profiles[type] is Map)
-                  for (final entry in Map<String, dynamic>.from(profiles[type] as Map).entries)
-                    ListTile(
-                      title: Text(entry.key.replaceAll('_', ' ')),
-                      trailing: Text(entry.value is Map
-                        ? '${entry.value['score'] ?? 0}/100'
-                        : '${entry.value}'),
-                    ),
-              ],
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Icon(Icons.check_circle, color: Colors.green, size: 40),
+            Text('Your profiles are complete',
+                style: Theme.of(context).textTheme.titleLarge),
+            const Text('Your personality and romantic preference profiles have been saved by the backend.'),
+            if (profiles != null)
+              for (final type in ['personality', 'romantic'])
+                ExpansionTile(
+                  title: Text(type == 'personality'
+                      ? 'Personality profile'
+                      : 'Romantic profile'),
+                  children: [
+                    if (profiles[type] is Map)
+                      for (final entry
+                          in Map<String, dynamic>.from(profiles[type] as Map)
+                              .entries)
+                        ListTile(
+                          title: Text(entry.key.replaceAll('_', ' ')),
+                          trailing: Text(entry.value is Map
+                              ? '${entry.value['score'] ?? 0}/100'
+                              : '${entry.value}'),
+                        ),
+                  ],
+                ),
+            const SizedBox(height: 10),
+            FilledButton.icon(
+              onPressed: _loading ? null : _openResult,
+              icon: const Icon(Icons.favorite),
+              label: const Text('View my Waifu match'),
             ),
-        const SizedBox(height: 10),
-        FilledButton.icon(
-          onPressed: _loading ? null : _openResult,
-          icon: const Icon(Icons.favorite),
-          label: const Text('View my Waifu match'),
+          ],
         ),
-      ]),
-    ));
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) => ListView(
-    padding: const EdgeInsets.all(18),
-    children: [
-      Text('AI Waifu Match', style: Theme.of(context).textTheme.headlineSmall),
-      const Text('Answer adaptive questions to build your personality and romantic preference profiles.'),
-      const SizedBox(height: 16),
-      if (_progress != null) _progressCard(),
-      if (_error != null) Card(
-        color: Theme.of(context).colorScheme.errorContainer,
-        child: Padding(padding: const EdgeInsets.all(12), child: Text(_error!))),
-      const SizedBox(height: 12),
-      if (!_started)
-        Wrap(spacing: 8, children: [
-          FilledButton(onPressed: _loading ? null : _start,
-            child: const Text('Start questionnaire')),
-          OutlinedButton(onPressed: _loading ? null : _resume,
-            child: const Text('Resume session')),
-        ])
-      else if (_completed)
-        _completedCard()
-      else
-        _questionCard(),
-    ],
-  );
+        padding: const EdgeInsets.all(18),
+        children: [
+          Text('AI Waifu Match',
+              style: Theme.of(context).textTheme.headlineSmall),
+          const Text('Answer questions to build your personality and romantic preference profiles.'),
+          const SizedBox(height: 16),
+          if (_progress != null) _progressCard(),
+          if (_error != null)
+            Card(
+              color: Theme.of(context).colorScheme.errorContainer,
+              child: Padding(
+                padding: const EdgeInsets.all(12),
+                child: Text(_error!),
+              ),
+            ),
+          const SizedBox(height: 12),
+          if (!_started)
+            Wrap(
+              spacing: 8,
+              children: [
+                FilledButton(
+                  onPressed: _loading ? null : _start,
+                  child: const Text('Start questionnaire'),
+                ),
+                OutlinedButton(
+                  onPressed: _loading ? null : _resume,
+                  child: const Text('Resume session'),
+                ),
+              ],
+            )
+          else if (_completed)
+            _completedCard()
+          else
+            _questionCard(),
+        ],
+      );
 }

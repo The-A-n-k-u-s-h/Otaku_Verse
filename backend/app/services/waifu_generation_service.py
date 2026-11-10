@@ -16,7 +16,7 @@ def generate_and_save_questions(topic, profile_type, trait_key, count, actor):
         draft.setdefault("options", [])
         if len(draft["options"]) < 2:
             continue
-        saved.append(create_question(draft, actor))
+        saved.append(create_question(draft, f"AI:{actor}"))
     if not saved:
         raise ValueError("AI drafts did not contain valid questions with at least two options.")
     return saved

@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "generated_at": null,
+  "characters": [],
+  "questions": [
+    {
+      "question_id": "manual_personality_001",
+      "prompt": "What helps you feel comfortable around others?",
+      "category": "communication",
+      "profile_type": "personality",
+      "trait_key": "communication",
+      "explanation": "Measures communication preference.",
+      "status": "draft",
+      "is_required": true,
+      "display_order": 1,
+      "answers": [
+        {
+          "answer_id": "manual_answer_001",
+          "text": "A calm one-to-one conversation",
+          "display_order": 0,
+          "scores": [
+            {
+              "trait_key": "communication",
+              "score_value": 75
+            }
+          ]
+        },
+        {
+          "answer_id": "manual_answer_002",
+          "text": "A lively group conversation",
+          "display_order": 1,
+          "scores": [
+            {
+              "trait_key": "communication",
+              "score_value": 45
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

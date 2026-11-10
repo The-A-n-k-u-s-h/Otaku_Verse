@@ -1,11 +1,22 @@
 {% extends "base.html" %}
-{% block title %}Operator Control Center | OtakuVerse{% endblock %}
+{% block title %}Super Operator | OtakuVerse{% endblock %}
 {% block content %}
-<section class="ov-page-heading"><p class="ov-eyebrow">CONTROL CENTER</p><h1>Five feature operators</h1><p>Choose a feature. You will be asked for its separate access code before its dashboard opens.</p></section>
-<div class="ov-feature-grid">
-{% for key, name in features.items() %}
-  <a class="ov-feature-card" href="{{ url_for('operator.feature_access', feature=key) }}"><span class="ov-feature-index">0{{ loop.index }}</span><h2>{{ name }}</h2><p>Open the {{ name }} operator workspace.</p><span class="ov-card-link">Enter access code →</span></a>
-{% endfor %}
+<section class="ov-dashboard">
+<h1>Super Operator Dashboard</h1><p>Global monitoring for all five independently managed areas.</p>
+<div class="ov-stats">
+<article><span>Visitors online</span><strong id="onlineCount">--</strong></article>
+<article><span>Visitors today</span><strong id="todayCount">--</strong></article>
+<article><span>Waifu characters</span><strong id="characterCount">--</strong></article>
+<article><span>Waifu questions</span><strong id="questionCount">--</strong></article>
+<article><span>Saved Waifu matches</span><strong id="matchCount">--</strong></article>
+<article><span>Waifu operator accounts</span><strong id="accountCount">--</strong></article>
 </div>
-<p class="ov-inline-link"><a href="{{ url_for('operator.all_activity') }}">View all operator changes and activity</a></p>
+<h2>Feature control</h2><div class="ov-feature-grid">
+{% for key,name in features.items() %}<a class="ov-feature-card" href="{{ url_for('operator.feature_dashboard',feature=key) }}"><strong>{{ name }}</strong><span>Open module dashboard</span></a>{% endfor %}
+</div><p><a href="{{ url_for('operator.all_activity') }}">View global activity</a></p>
+</section>
 {% endblock %}
+{% block scripts %}
+<script>
+(async function(){try{const r=await fetch("{{ url_for('operator.overview_api') }}");if(!r.ok)throw Error();const d=(await r.json()).overview||{};const m={onlineCount:"visitors_online",todayCount:"visitors_today",characterCount:"waifu_characters",questionCount:"waifu_questions",matchCount:"waifu_matches_saved",accountCount:"operator_accounts"};Object.entries(m).forEach(([id,k])=>{document.getElementById(id).textContent=Number(d[k]||0).toLocaleString()})}catch(e){console.warn("Overview metrics unavailable",e)}})();
+</script>{% endblock %}

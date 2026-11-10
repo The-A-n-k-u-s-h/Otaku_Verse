@@ -11,18 +11,6 @@ from app.services.waifu_history_service import (
 waifu_history_bp = Blueprint("waifu_history", __name__)
 
 
-def get_history_owner_key():
-    # Adjust user_id if your existing login system uses another session key.
-    user_id = session.get("user_id")
-    if user_id is not None:
-        return f"user:{user_id}"
-
-    guest_key = session.get("waifu_history_owner")
-    if not guest_key:
-        guest_key = secrets.token_urlsafe(32)
-        session["waifu_history_owner"] = guest_key
-    return f"guest:{guest_key}"
-
 
 @waifu_history_bp.get("/character-match/history")
 def history_page():
@@ -47,10 +35,10 @@ def waifu_history_owner_key():
 @waifu_history_bp.get("/api/waifu/history/")
 def history_list():
     try:
-        limit = request.args.get("limit", 50, type=int)
-        offset = request.args.get("offset", 0, type=int)
+        limit = max(1, min(request.args.get("limit", 50, type=int) or 50, 100))
+        offset = max(0, request.args.get("offset", 0, type=int) or 0)
         records = list_match_history(
-            get_history_owner_key(), limit=limit, offset=offset
+            waifu_history_owner_key(), limit=limit, offset=offset
         )
         return jsonify({"success": True, "history": records})
     except (TypeError, ValueError):
@@ -59,7 +47,7 @@ def history_list():
 
 @waifu_history_bp.get("/api/waifu/history/<int:history_id>")
 def history_detail(history_id):
-    record = get_history_record(get_history_owner_key(), history_id)
+    record = get_history_record(waifu_history_owner_key(), history_id)
     if not record:
         return jsonify({"success": False, "message": "History record not found."}), 404
     return jsonify({"success": True, "record": record})
@@ -67,7 +55,7 @@ def history_detail(history_id):
 
 @waifu_history_bp.delete("/api/waifu/history/<int:history_id>")
 def history_delete(history_id):
-    deleted = delete_history_record(get_history_owner_key(), history_id)
+    deleted = delete_history_record(waifu_history_owner_key(), history_id)
     if not deleted:
         return jsonify({"success": False, "message": "History record not found."}), 404
     return jsonify({"success": True, "message": "History record deleted."})
@@ -75,7 +63,7 @@ def history_delete(history_id):
 
 @waifu_history_bp.delete("/api/waifu/history/")
 def history_clear():
-    deleted_count = clear_match_history(get_history_owner_key())
+    deleted_count = clear_match_history(waifu_history_owner_key())
     return jsonify({
         "success": True,
         "deleted_count": deleted_count,

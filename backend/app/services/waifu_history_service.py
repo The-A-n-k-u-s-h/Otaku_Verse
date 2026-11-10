@@ -36,6 +36,7 @@ def insert_history_record(db, match_id, owner_key, match_data, explanation):
             "name": str(character_name),
             "anime_title": str(anime_title),
             "image_url": str(character.get("image_url") or ""),
+            "gif_url": str(character.get("gif_url") or ""),
             "description": str(character.get("description") or "")
         },
         "compatibility": {

@@ -34,6 +34,9 @@ def create_app(test_config=None):
     from app.routes.waifu_result import waifu_result_bp
     from app.routes.waifu_history import waifu_history_bp
     from app.routes.operator import operator_bp
+    from app.routes.waifu_json_operator import waifu_json_bp
+    from app.routes.waifu_ai_status import waifu_ai_status_bp
+    from app.routes.waifu_media_operator import waifu_media_operator_bp
 
     
 
@@ -46,6 +49,9 @@ def create_app(test_config=None):
     app.register_blueprint(waifu_result_bp)
     app.register_blueprint(waifu_history_bp)
     app.register_blueprint(operator_bp)
+    app.register_blueprint(waifu_json_bp)
+    app.register_blueprint(waifu_ai_status_bp)
+    app.register_blueprint(waifu_media_operator_bp)
     @app.before_request
     def check_guest_expiry():
         if session.get("guest_mode"):

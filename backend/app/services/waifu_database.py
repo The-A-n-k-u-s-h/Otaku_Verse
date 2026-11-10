@@ -119,6 +119,10 @@ def init_waifu_db(app):
     conn.executescript(SCHEMA)
     conn.executescript(PROFILE_SCHEMA)
     conn.executescript(HISTORY_SCHEMA)
+    from app.services.waifu_media_schema import migrate_waifu_media
+    migrate_waifu_media(conn)
+    from app.services.operator_accounts_schema import migrate_operator_accounts
+    migrate_operator_accounts(conn)
     conn.commit()
     conn.close()
     app.teardown_appcontext(close_db)

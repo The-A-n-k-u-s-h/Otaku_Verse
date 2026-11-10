@@ -80,5 +80,10 @@ def validate_options(options):
             raise ValueError("Option score must be an integer.")
         if not 0 <= score <= 100:
             raise ValueError("Option score must be between 0 and 100.")
-        result.append({"text": text, "score": score, "order": index})
+        result.append({
+            "text": text, "score": score, "order": index,
+            "image_url": validate_http_url(item.get("image_url"), "Answer image URL"),
+            "gif_url": validate_http_url(item.get("gif_url"), "Answer GIF URL"),
+            "audio_url": validate_http_url(item.get("audio_url"), "Answer audio URL"),
+        })
     return result

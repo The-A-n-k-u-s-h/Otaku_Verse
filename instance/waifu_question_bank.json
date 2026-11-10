@@ -1,0 +1,1447 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-11-10T11:27:19.524447+00:00",
+  "characters": [],
+  "questions": [
+    {
+      "prompt": "When you face a difficult situation, what is your first reaction?",
+      "category": "Personality",
+      "profile_type": "personality",
+      "trait_key": "conflict_style",
+      "explanation": "Measures how the user handles challenges and disagreements.",
+      "status": "approved",
+      "is_required": 1,
+      "display_order": 0,
+      "created_by": "manual_sqlite_seed",
+      "reviewed_by": "Ankush",
+      "reviewed_at": "2026-11-10 11:26:05",
+      "rejection_reason": "",
+      "created_at": "2026-11-10 11:23:38",
+      "updated_at": "2026-11-10 11:26:05",
+      "image_url": "",
+      "gif_url": "",
+      "audio_url": "",
+      "image_source_url": "",
+      "difficulty": "medium",
+      "scheduled_start_at": null,
+      "scheduled_end_at": null,
+      "updated_by": null,
+      "question_id": "question_16",
+      "origin": "operator_or_manual",
+      "answers": [
+        {
+          "answer_id": "answer_61",
+          "text": "Face the situation directly and confidently.",
+          "display_order": 0,
+          "scores": [
+            {
+              "trait_key": "conflict_style",
+              "score_value": 95
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_62",
+          "text": "Think carefully before taking action.",
+          "display_order": 1,
+          "scores": [
+            {
+              "trait_key": "conflict_style",
+              "score_value": 75
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_63",
+          "text": "Discuss it with someone I trust.",
+          "display_order": 2,
+          "scores": [
+            {
+              "trait_key": "conflict_style",
+              "score_value": 55
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_64",
+          "text": "Avoid unnecessary confrontation.",
+          "display_order": 3,
+          "scores": [
+            {
+              "trait_key": "conflict_style",
+              "score_value": 25
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "prompt": "What kind of person do you naturally admire?",
+      "category": "Personality",
+      "profile_type": "personality",
+      "trait_key": "ambition",
+      "explanation": "Measures admiration for ambition and determination.",
+      "status": "approved",
+      "is_required": 1,
+      "display_order": 0,
+      "created_by": "manual_sqlite_seed",
+      "reviewed_by": "Ankush",
+      "reviewed_at": "2026-11-10 11:26:17",
+      "rejection_reason": "",
+      "created_at": "2026-11-10 11:23:38",
+      "updated_at": "2026-11-10 11:26:17",
+      "image_url": "",
+      "gif_url": "",
+      "audio_url": "",
+      "image_source_url": "",
+      "difficulty": "medium",
+      "scheduled_start_at": null,
+      "scheduled_end_at": null,
+      "updated_by": null,
+      "question_id": "question_17",
+      "origin": "operator_or_manual",
+      "answers": [
+        {
+          "answer_id": "answer_65",
+          "text": "Someone who never gives up on their dreams.",
+          "display_order": 0,
+          "scores": [
+            {
+              "trait_key": "ambition",
+              "score_value": 95
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_66",
+          "text": "Someone who works steadily towards their goals.",
+          "display_order": 1,
+          "scores": [
+            {
+              "trait_key": "ambition",
+              "score_value": 75
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_67",
+          "text": "Someone who values a peaceful life.",
+          "display_order": 2,
+          "scores": [
+            {
+              "trait_key": "ambition",
+              "score_value": 50
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_68",
+          "text": "Someone who prefers going with the flow.",
+          "display_order": 3,
+          "scores": [
+            {
+              "trait_key": "ambition",
+              "score_value": 25
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "prompt": "How do you usually express care for someone?",
+      "category": "Personality",
+      "profile_type": "personality",
+      "trait_key": "emotionality",
+      "explanation": "Measures emotional responsiveness and care.",
+      "status": "draft",
+      "is_required": 1,
+      "display_order": 0,
+      "created_by": "manual_sqlite_seed",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "rejection_reason": null,
+      "created_at": "2026-11-10 11:23:38",
+      "updated_at": "2026-11-10 11:23:38",
+      "image_url": "",
+      "gif_url": "",
+      "audio_url": "",
+      "image_source_url": "",
+      "difficulty": "medium",
+      "scheduled_start_at": null,
+      "scheduled_end_at": null,
+      "updated_by": null,
+      "question_id": "question_18",
+      "origin": "operator_or_manual",
+      "answers": [
+        {
+          "answer_id": "answer_69",
+          "text": "I openly express my feelings.",
+          "display_order": 0,
+          "scores": [
+            {
+              "trait_key": "emotionality",
+              "score_value": 95
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_70",
+          "text": "I listen and offer emotional support.",
+          "display_order": 1,
+          "scores": [
+            {
+              "trait_key": "emotionality",
+              "score_value": 80
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_71",
+          "text": "I show care through practical actions.",
+          "display_order": 2,
+          "scores": [
+            {
+              "trait_key": "emotionality",
+              "score_value": 60
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_72",
+          "text": "I find it difficult to express emotions.",
+          "display_order": 3,
+          "scores": [
+            {
+              "trait_key": "emotionality",
+              "score_value": 25
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "prompt": "What would make you feel most secure in a relationship?",
+      "category": "Romantic Preference",
+      "profile_type": "romantic",
+      "trait_key": "trust",
+      "explanation": "Measures the importance of trust and reliability.",
+      "status": "draft",
+      "is_required": 1,
+      "display_order": 0,
+      "created_by": "manual_sqlite_seed",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "rejection_reason": null,
+      "created_at": "2026-11-10 11:23:38",
+      "updated_at": "2026-11-10 11:23:38",
+      "image_url": "",
+      "gif_url": "",
+      "audio_url": "",
+      "image_source_url": "",
+      "difficulty": "medium",
+      "scheduled_start_at": null,
+      "scheduled_end_at": null,
+      "updated_by": null,
+      "question_id": "question_19",
+      "origin": "operator_or_manual",
+      "answers": [
+        {
+          "answer_id": "answer_73",
+          "text": "Complete honesty and mutual trust.",
+          "display_order": 0,
+          "scores": [
+            {
+              "trait_key": "trust",
+              "score_value": 100
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_74",
+          "text": "Consistent support and loyalty.",
+          "display_order": 1,
+          "scores": [
+            {
+              "trait_key": "trust",
+              "score_value": 80
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_75",
+          "text": "Freedom with mutual understanding.",
+          "display_order": 2,
+          "scores": [
+            {
+              "trait_key": "trust",
+              "score_value": 60
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_76",
+          "text": "Excitement and spontaneity.",
+          "display_order": 3,
+          "scores": [
+            {
+              "trait_key": "trust",
+              "score_value": 35
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "prompt": "How would you prefer your ideal partner to support you?",
+      "category": "Romantic Preference",
+      "profile_type": "romantic",
+      "trait_key": "support_style",
+      "explanation": "Measures preferred emotional and practical support.",
+      "status": "draft",
+      "is_required": 1,
+      "display_order": 0,
+      "created_by": "manual_sqlite_seed",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "rejection_reason": null,
+      "created_at": "2026-11-10 11:23:38",
+      "updated_at": "2026-11-10 11:23:38",
+      "image_url": "",
+      "gif_url": "",
+      "audio_url": "",
+      "image_source_url": "",
+      "difficulty": "medium",
+      "scheduled_start_at": null,
+      "scheduled_end_at": null,
+      "updated_by": null,
+      "question_id": "question_20",
+      "origin": "operator_or_manual",
+      "answers": [
+        {
+          "answer_id": "answer_77",
+          "text": "Stay beside me and listen patiently.",
+          "display_order": 0,
+          "scores": [
+            {
+              "trait_key": "support_style",
+              "score_value": 95
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_78",
+          "text": "Help me find solutions to my problems.",
+          "display_order": 1,
+          "scores": [
+            {
+              "trait_key": "support_style",
+              "score_value": 75
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_79",
+          "text": "Give me space but check on me later.",
+          "display_order": 2,
+          "scores": [
+            {
+              "trait_key": "support_style",
+              "score_value": 55
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_80",
+          "text": "Make me laugh and distract me from stress.",
+          "display_order": 3,
+          "scores": [
+            {
+              "trait_key": "support_style",
+              "score_value": 35
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "prompt": "What kind of day would make you happiest?",
+      "category": "lifestyle",
+      "profile_type": "personality",
+      "trait_key": "playfulness",
+      "explanation": "Demo question measuring the playfulness trait.",
+      "status": "approved",
+      "is_required": 1,
+      "display_order": 1,
+      "created_by": "Ankush",
+      "reviewed_by": "Ankush",
+      "reviewed_at": "2026-11-10 10:41:34",
+      "rejection_reason": "",
+      "created_at": "2026-11-10 10:27:11",
+      "updated_at": "2026-11-10 10:41:34",
+      "image_url": "",
+      "gif_url": "",
+      "audio_url": "",
+      "image_source_url": "",
+      "difficulty": "medium",
+      "scheduled_start_at": null,
+      "scheduled_end_at": null,
+      "updated_by": null,
+      "question_id": "question_1",
+      "origin": "operator_or_manual",
+      "answers": [
+        {
+          "answer_id": "answer_1",
+          "text": "A quiet day with books or music",
+          "display_order": 0,
+          "scores": [
+            {
+              "trait_key": "playfulness",
+              "score_value": 80
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_2",
+          "text": "An exciting day full of new experiences",
+          "display_order": 1,
+          "scores": [
+            {
+              "trait_key": "playfulness",
+              "score_value": 65
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_3",
+          "text": "A productive day achieving my goals",
+          "display_order": 2,
+          "scores": [
+            {
+              "trait_key": "playfulness",
+              "score_value": 35
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_4",
+          "text": "A day spent helping someone I care about",
+          "display_order": 3,
+          "scores": [
+            {
+              "trait_key": "playfulness",
+              "score_value": 75
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "prompt": "How do you usually approach a new friendship?",
+      "category": "personality",
+      "profile_type": "personality",
+      "trait_key": "communication",
+      "explanation": "Demo question measuring the communication trait.",
+      "status": "approved",
+      "is_required": 1,
+      "display_order": 2,
+      "created_by": "Ankush",
+      "reviewed_by": "Ankush",
+      "reviewed_at": "2026-11-10 10:41:36",
+      "rejection_reason": "",
+      "created_at": "2026-11-10 10:27:11",
+      "updated_at": "2026-11-10 10:41:36",
+      "image_url": "",
+      "gif_url": "",
+      "audio_url": "",
+      "image_source_url": "",
+      "difficulty": "medium",
+      "scheduled_start_at": null,
+      "scheduled_end_at": null,
+      "updated_by": null,
+      "question_id": "question_2",
+      "origin": "operator_or_manual",
+      "answers": [
+        {
+          "answer_id": "answer_5",
+          "text": "I listen first and open up slowly",
+          "display_order": 0,
+          "scores": [
+            {
+              "trait_key": "communication",
+              "score_value": 85
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_6",
+          "text": "I start conversations easily",
+          "display_order": 1,
+          "scores": [
+            {
+              "trait_key": "communication",
+              "score_value": 25
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_7",
+          "text": "I look for shared interests",
+          "display_order": 2,
+          "scores": [
+            {
+              "trait_key": "communication",
+              "score_value": 65
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_8",
+          "text": "I let trust build naturally",
+          "display_order": 3,
+          "scores": [
+            {
+              "trait_key": "communication",
+              "score_value": 75
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "prompt": "When a friend is struggling, what do you do?",
+      "category": "personality",
+      "profile_type": "romantic",
+      "trait_key": "support_style",
+      "explanation": "Demo question measuring the support style trait.",
+      "status": "approved",
+      "is_required": 1,
+      "display_order": 3,
+      "created_by": "Ankush",
+      "reviewed_by": "Ankush",
+      "reviewed_at": "2026-11-10 10:41:39",
+      "rejection_reason": "",
+      "created_at": "2026-11-10 10:27:11",
+      "updated_at": "2026-11-10 10:41:39",
+      "image_url": "",
+      "gif_url": "",
+      "audio_url": "",
+      "image_source_url": "",
+      "difficulty": "medium",
+      "scheduled_start_at": null,
+      "scheduled_end_at": null,
+      "updated_by": null,
+      "question_id": "question_3",
+      "origin": "operator_or_manual",
+      "answers": [
+        {
+          "answer_id": "answer_9",
+          "text": "Listen and comfort them",
+          "display_order": 0,
+          "scores": [
+            {
+              "trait_key": "support_style",
+              "score_value": 85
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_10",
+          "text": "Offer a practical solution",
+          "display_order": 1,
+          "scores": [
+            {
+              "trait_key": "support_style",
+              "score_value": 65
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_11",
+          "text": "Give them space, then check in",
+          "display_order": 2,
+          "scores": [
+            {
+              "trait_key": "support_style",
+              "score_value": 55
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_12",
+          "text": "Stay beside them until things improve",
+          "display_order": 3,
+          "scores": [
+            {
+              "trait_key": "support_style",
+              "score_value": 95
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "prompt": "What motivates you most?",
+      "category": "personality",
+      "profile_type": "personality",
+      "trait_key": "ambition",
+      "explanation": "Demo question measuring the ambition trait.",
+      "status": "approved",
+      "is_required": 1,
+      "display_order": 4,
+      "created_by": "Ankush",
+      "reviewed_by": "Ankush",
+      "reviewed_at": "2026-11-10 10:41:42",
+      "rejection_reason": "",
+      "created_at": "2026-11-10 10:27:11",
+      "updated_at": "2026-11-10 10:41:42",
+      "image_url": "",
+      "gif_url": "",
+      "audio_url": "",
+      "image_source_url": "",
+      "difficulty": "medium",
+      "scheduled_start_at": null,
+      "scheduled_end_at": null,
+      "updated_by": null,
+      "question_id": "question_4",
+      "origin": "operator_or_manual",
+      "answers": [
+        {
+          "answer_id": "answer_13",
+          "text": "Achieving a difficult goal",
+          "display_order": 0,
+          "scores": [
+            {
+              "trait_key": "ambition",
+              "score_value": 95
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_14",
+          "text": "Making people I love proud",
+          "display_order": 1,
+          "scores": [
+            {
+              "trait_key": "ambition",
+              "score_value": 70
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_15",
+          "text": "Discovering something new",
+          "display_order": 2,
+          "scores": [
+            {
+              "trait_key": "ambition",
+              "score_value": 75
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_16",
+          "text": "Building a peaceful life",
+          "display_order": 3,
+          "scores": [
+            {
+              "trait_key": "ambition",
+              "score_value": 40
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "prompt": "How do you react during a disagreement?",
+      "category": "personality",
+      "profile_type": "personality",
+      "trait_key": "conflict_style",
+      "explanation": "Demo question measuring the conflict style trait.",
+      "status": "approved",
+      "is_required": 1,
+      "display_order": 5,
+      "created_by": "Ankush",
+      "reviewed_by": "Ankush",
+      "reviewed_at": "2026-11-10 10:41:44",
+      "rejection_reason": "",
+      "created_at": "2026-11-10 10:27:11",
+      "updated_at": "2026-11-10 10:41:44",
+      "image_url": "",
+      "gif_url": "",
+      "audio_url": "",
+      "image_source_url": "",
+      "difficulty": "medium",
+      "scheduled_start_at": null,
+      "scheduled_end_at": null,
+      "updated_by": null,
+      "question_id": "question_5",
+      "origin": "operator_or_manual",
+      "answers": [
+        {
+          "answer_id": "answer_17",
+          "text": "Talk calmly until we understand each other",
+          "display_order": 0,
+          "scores": [
+            {
+              "trait_key": "conflict_style",
+              "score_value": 80
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_18",
+          "text": "Take time to cool down first",
+          "display_order": 1,
+          "scores": [
+            {
+              "trait_key": "conflict_style",
+              "score_value": 65
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_19",
+          "text": "Stand firmly by what I believe",
+          "display_order": 2,
+          "scores": [
+            {
+              "trait_key": "conflict_style",
+              "score_value": 90
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_20",
+          "text": "Try to find a compromise",
+          "display_order": 3,
+          "scores": [
+            {
+              "trait_key": "conflict_style",
+              "score_value": 70
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "prompt": "How important is independence to you?",
+      "category": "personality",
+      "profile_type": "personality",
+      "trait_key": "independence",
+      "explanation": "Demo question measuring the independence trait.",
+      "status": "approved",
+      "is_required": 1,
+      "display_order": 6,
+      "created_by": "Ankush",
+      "reviewed_by": "Ankush",
+      "reviewed_at": "2026-11-10 10:41:50",
+      "rejection_reason": "",
+      "created_at": "2026-11-10 10:27:11",
+      "updated_at": "2026-11-10 10:41:50",
+      "image_url": "",
+      "gif_url": "",
+      "audio_url": "",
+      "image_source_url": "",
+      "difficulty": "medium",
+      "scheduled_start_at": null,
+      "scheduled_end_at": null,
+      "updated_by": null,
+      "question_id": "question_6",
+      "origin": "operator_or_manual",
+      "answers": [
+        {
+          "answer_id": "answer_21",
+          "text": "Extremely important",
+          "display_order": 0,
+          "scores": [
+            {
+              "trait_key": "independence",
+              "score_value": 95
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_22",
+          "text": "I like independence with mutual support",
+          "display_order": 1,
+          "scores": [
+            {
+              "trait_key": "independence",
+              "score_value": 75
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_23",
+          "text": "I prefer doing most things together",
+          "display_order": 2,
+          "scores": [
+            {
+              "trait_key": "independence",
+              "score_value": 30
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_24",
+          "text": "It depends on the situation",
+          "display_order": 3,
+          "scores": [
+            {
+              "trait_key": "independence",
+              "score_value": 60
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "prompt": "How do you express care?",
+      "category": "romantic",
+      "profile_type": "romantic",
+      "trait_key": "affection",
+      "explanation": "Demo question measuring the affection trait.",
+      "status": "approved",
+      "is_required": 1,
+      "display_order": 7,
+      "created_by": "Ankush",
+      "reviewed_by": "Ankush",
+      "reviewed_at": "2026-11-10 10:41:47",
+      "rejection_reason": "",
+      "created_at": "2026-11-10 10:27:11",
+      "updated_at": "2026-11-10 10:41:47",
+      "image_url": "",
+      "gif_url": "",
+      "audio_url": "",
+      "image_source_url": "",
+      "difficulty": "medium",
+      "scheduled_start_at": null,
+      "scheduled_end_at": null,
+      "updated_by": null,
+      "question_id": "question_7",
+      "origin": "operator_or_manual",
+      "answers": [
+        {
+          "answer_id": "answer_25",
+          "text": "Small thoughtful actions",
+          "display_order": 0,
+          "scores": [
+            {
+              "trait_key": "affection",
+              "score_value": 75
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_26",
+          "text": "Honest words and reassurance",
+          "display_order": 1,
+          "scores": [
+            {
+              "trait_key": "affection",
+              "score_value": 85
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_27",
+          "text": "Spending quality time together",
+          "display_order": 2,
+          "scores": [
+            {
+              "trait_key": "affection",
+              "score_value": 80
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_28",
+          "text": "Protecting and supporting them",
+          "display_order": 3,
+          "scores": [
+            {
+              "trait_key": "affection",
+              "score_value": 90
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "prompt": "What communication style do you prefer in a relationship?",
+      "category": "romantic",
+      "profile_type": "romantic",
+      "trait_key": "communication_preference",
+      "explanation": "Demo question measuring the communication preference trait.",
+      "status": "approved",
+      "is_required": 1,
+      "display_order": 8,
+      "created_by": "Ankush",
+      "reviewed_by": "Ankush",
+      "reviewed_at": "2026-11-10 10:41:52",
+      "rejection_reason": "",
+      "created_at": "2026-11-10 10:27:11",
+      "updated_at": "2026-11-10 10:41:52",
+      "image_url": "",
+      "gif_url": "",
+      "audio_url": "",
+      "image_source_url": "",
+      "difficulty": "medium",
+      "scheduled_start_at": null,
+      "scheduled_end_at": null,
+      "updated_by": null,
+      "question_id": "question_8",
+      "origin": "operator_or_manual",
+      "answers": [
+        {
+          "answer_id": "answer_29",
+          "text": "Frequent and open conversations",
+          "display_order": 0,
+          "scores": [
+            {
+              "trait_key": "communication_preference",
+              "score_value": 90
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_30",
+          "text": "A few meaningful conversations",
+          "display_order": 1,
+          "scores": [
+            {
+              "trait_key": "communication_preference",
+              "score_value": 70
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_31",
+          "text": "A mix of messages and in-person talks",
+          "display_order": 2,
+          "scores": [
+            {
+              "trait_key": "communication_preference",
+              "score_value": 80
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_32",
+          "text": "Honest communication whenever needed",
+          "display_order": 3,
+          "scores": [
+            {
+              "trait_key": "communication_preference",
+              "score_value": 85
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "prompt": "How much personal space should partners have?",
+      "category": "romantic",
+      "profile_type": "romantic",
+      "trait_key": "personal_space",
+      "explanation": "Demo question measuring the personal space trait.",
+      "status": "pending_review",
+      "is_required": 1,
+      "display_order": 9,
+      "created_by": "Ankush",
+      "reviewed_by": "Ankush",
+      "reviewed_at": "2026-11-10 11:27:13",
+      "rejection_reason": "",
+      "created_at": "2026-11-10 10:27:11",
+      "updated_at": "2026-11-10 11:27:13",
+      "image_url": "",
+      "gif_url": "",
+      "audio_url": "",
+      "image_source_url": "",
+      "difficulty": "medium",
+      "scheduled_start_at": null,
+      "scheduled_end_at": null,
+      "updated_by": null,
+      "question_id": "question_9",
+      "origin": "operator_or_manual",
+      "answers": [
+        {
+          "answer_id": "answer_33",
+          "text": "Plenty of time for individual interests",
+          "display_order": 0,
+          "scores": [
+            {
+              "trait_key": "personal_space",
+              "score_value": 95
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_34",
+          "text": "A healthy balance",
+          "display_order": 1,
+          "scores": [
+            {
+              "trait_key": "personal_space",
+              "score_value": 75
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_35",
+          "text": "Most activities should be shared",
+          "display_order": 2,
+          "scores": [
+            {
+              "trait_key": "personal_space",
+              "score_value": 35
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_36",
+          "text": "It should change with circumstances",
+          "display_order": 3,
+          "scores": [
+            {
+              "trait_key": "personal_space",
+              "score_value": 60
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "prompt": "What builds trust for you?",
+      "category": "romantic",
+      "profile_type": "romantic",
+      "trait_key": "trust",
+      "explanation": "Demo question measuring the trust trait.",
+      "status": "draft",
+      "is_required": 1,
+      "display_order": 10,
+      "created_by": "Ankush",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "rejection_reason": null,
+      "created_at": "2026-11-10 10:27:11",
+      "updated_at": "2026-11-10 10:27:11",
+      "image_url": "",
+      "gif_url": "",
+      "audio_url": "",
+      "image_source_url": "",
+      "difficulty": "medium",
+      "scheduled_start_at": null,
+      "scheduled_end_at": null,
+      "updated_by": null,
+      "question_id": "question_10",
+      "origin": "operator_or_manual",
+      "answers": [
+        {
+          "answer_id": "answer_37",
+          "text": "Consistency and keeping promises",
+          "display_order": 0,
+          "scores": [
+            {
+              "trait_key": "trust",
+              "score_value": 85
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_38",
+          "text": "Honesty, even when difficult",
+          "display_order": 1,
+          "scores": [
+            {
+              "trait_key": "trust",
+              "score_value": 90
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_39",
+          "text": "Being there during hard times",
+          "display_order": 2,
+          "scores": [
+            {
+              "trait_key": "trust",
+              "score_value": 80
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_40",
+          "text": "Respecting boundaries",
+          "display_order": 3,
+          "scores": [
+            {
+              "trait_key": "trust",
+              "score_value": 90
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "prompt": "Which relationship dynamic appeals to you?",
+      "category": "romantic",
+      "profile_type": "romantic",
+      "trait_key": "relationship_dynamic",
+      "explanation": "Demo question measuring the relationship dynamic trait.",
+      "status": "pending_review",
+      "is_required": 1,
+      "display_order": 11,
+      "created_by": "Ankush",
+      "reviewed_by": "Ankush",
+      "reviewed_at": "2026-11-10 11:27:19",
+      "rejection_reason": "",
+      "created_at": "2026-11-10 10:27:11",
+      "updated_at": "2026-11-10 11:27:19",
+      "image_url": "",
+      "gif_url": "",
+      "audio_url": "",
+      "image_source_url": "",
+      "difficulty": "medium",
+      "scheduled_start_at": null,
+      "scheduled_end_at": null,
+      "updated_by": null,
+      "question_id": "question_11",
+      "origin": "operator_or_manual",
+      "answers": [
+        {
+          "answer_id": "answer_41",
+          "text": "Best friends who support each other",
+          "display_order": 0,
+          "scores": [
+            {
+              "trait_key": "relationship_dynamic",
+              "score_value": 85
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_42",
+          "text": "A playful pair who tease each other",
+          "display_order": 1,
+          "scores": [
+            {
+              "trait_key": "relationship_dynamic",
+              "score_value": 75
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_43",
+          "text": "A calm and dependable partnership",
+          "display_order": 2,
+          "scores": [
+            {
+              "trait_key": "relationship_dynamic",
+              "score_value": 90
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_44",
+          "text": "Two independent people growing together",
+          "display_order": 3,
+          "scores": [
+            {
+              "trait_key": "relationship_dynamic",
+              "score_value": 95
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "prompt": "What is your first response to an unexpected problem?",
+      "category": "personality",
+      "profile_type": "personality",
+      "trait_key": "emotionality",
+      "explanation": "Demo question measuring the emotionality trait.",
+      "status": "draft",
+      "is_required": 1,
+      "display_order": 12,
+      "created_by": "Ankush",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "rejection_reason": null,
+      "created_at": "2026-11-10 10:27:11",
+      "updated_at": "2026-11-10 10:27:11",
+      "image_url": "",
+      "gif_url": "",
+      "audio_url": "",
+      "image_source_url": "",
+      "difficulty": "medium",
+      "scheduled_start_at": null,
+      "scheduled_end_at": null,
+      "updated_by": null,
+      "question_id": "question_12",
+      "origin": "operator_or_manual",
+      "answers": [
+        {
+          "answer_id": "answer_45",
+          "text": "Stay calm and assess the situation",
+          "display_order": 0,
+          "scores": [
+            {
+              "trait_key": "emotionality",
+              "score_value": 65
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_46",
+          "text": "Check how everyone is feeling",
+          "display_order": 1,
+          "scores": [
+            {
+              "trait_key": "emotionality",
+              "score_value": 90
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_47",
+          "text": "Act quickly and adjust later",
+          "display_order": 2,
+          "scores": [
+            {
+              "trait_key": "emotionality",
+              "score_value": 45
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_48",
+          "text": "Ask someone I trust for perspective",
+          "display_order": 3,
+          "scores": [
+            {
+              "trait_key": "emotionality",
+              "score_value": 75
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "prompt": "What do you value most in a partner?",
+      "category": "romantic",
+      "profile_type": "romantic",
+      "trait_key": "shared_values",
+      "explanation": "Demo question measuring the shared values trait.",
+      "status": "draft",
+      "is_required": 1,
+      "display_order": 13,
+      "created_by": "Ankush",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "rejection_reason": null,
+      "created_at": "2026-11-10 10:27:11",
+      "updated_at": "2026-11-10 10:27:11",
+      "image_url": "",
+      "gif_url": "",
+      "audio_url": "",
+      "image_source_url": "",
+      "difficulty": "medium",
+      "scheduled_start_at": null,
+      "scheduled_end_at": null,
+      "updated_by": null,
+      "question_id": "question_13",
+      "origin": "operator_or_manual",
+      "answers": [
+        {
+          "answer_id": "answer_49",
+          "text": "Kindness and empathy",
+          "display_order": 0,
+          "scores": [
+            {
+              "trait_key": "shared_values",
+              "score_value": 90
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_50",
+          "text": "Honesty and loyalty",
+          "display_order": 1,
+          "scores": [
+            {
+              "trait_key": "shared_values",
+              "score_value": 95
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_51",
+          "text": "Ambition and curiosity",
+          "display_order": 2,
+          "scores": [
+            {
+              "trait_key": "shared_values",
+              "score_value": 75
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_52",
+          "text": "Respect and understanding",
+          "display_order": 3,
+          "scores": [
+            {
+              "trait_key": "shared_values",
+              "score_value": 90
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "prompt": "How do you prefer to spend time with someone special?",
+      "category": "romantic",
+      "profile_type": "romantic",
+      "trait_key": "temperament",
+      "explanation": "Demo question measuring the temperament trait.",
+      "status": "draft",
+      "is_required": 1,
+      "display_order": 14,
+      "created_by": "Ankush",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "rejection_reason": null,
+      "created_at": "2026-11-10 10:27:11",
+      "updated_at": "2026-11-10 10:27:11",
+      "image_url": "",
+      "gif_url": "",
+      "audio_url": "",
+      "image_source_url": "",
+      "difficulty": "medium",
+      "scheduled_start_at": null,
+      "scheduled_end_at": null,
+      "updated_by": null,
+      "question_id": "question_14",
+      "origin": "operator_or_manual",
+      "answers": [
+        {
+          "answer_id": "answer_53",
+          "text": "A peaceful evening at home",
+          "display_order": 0,
+          "scores": [
+            {
+              "trait_key": "temperament",
+              "score_value": 75
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_54",
+          "text": "Trying a new activity together",
+          "display_order": 1,
+          "scores": [
+            {
+              "trait_key": "temperament",
+              "score_value": 65
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_55",
+          "text": "A deep conversation over coffee",
+          "display_order": 2,
+          "scores": [
+            {
+              "trait_key": "temperament",
+              "score_value": 90
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_56",
+          "text": "A spontaneous little adventure",
+          "display_order": 3,
+          "scores": [
+            {
+              "trait_key": "temperament",
+              "score_value": 55
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "prompt": "When plans suddenly change, how do you feel?",
+      "category": "personality",
+      "profile_type": "personality",
+      "trait_key": "playfulness",
+      "explanation": "Demo question measuring the playfulness trait.",
+      "status": "approved",
+      "is_required": 1,
+      "display_order": 15,
+      "created_by": "Ankush",
+      "reviewed_by": "Ankush",
+      "reviewed_at": "2026-11-10 11:11:26",
+      "rejection_reason": "",
+      "created_at": "2026-11-10 10:27:11",
+      "updated_at": "2026-11-10 11:11:26",
+      "image_url": "",
+      "gif_url": "",
+      "audio_url": "",
+      "image_source_url": "",
+      "difficulty": "medium",
+      "scheduled_start_at": null,
+      "scheduled_end_at": null,
+      "updated_by": null,
+      "question_id": "question_15",
+      "origin": "operator_or_manual",
+      "answers": [
+        {
+          "answer_id": "answer_57",
+          "text": "I enjoy the spontaneity",
+          "display_order": 0,
+          "scores": [
+            {
+              "trait_key": "playfulness",
+              "score_value": 85
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_58",
+          "text": "I need a moment to adjust",
+          "display_order": 1,
+          "scores": [
+            {
+              "trait_key": "playfulness",
+              "score_value": 45
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_59",
+          "text": "I quickly make a new plan",
+          "display_order": 2,
+          "scores": [
+            {
+              "trait_key": "playfulness",
+              "score_value": 65
+            }
+          ]
+        },
+        {
+          "answer_id": "answer_60",
+          "text": "I am flexible if everyone is comfortable",
+          "display_order": 3,
+          "scores": [
+            {
+              "trait_key": "playfulness",
+              "score_value": 75
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

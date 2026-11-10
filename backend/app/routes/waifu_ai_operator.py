@@ -12,7 +12,15 @@ def ai_tools_page():
     return render_template("operator/waifu_ai_tools.html")
 
 def _error(exc):
-    return jsonify({"success": False, "message": str(exc)}), 400
+    if isinstance(exc, AIConfigurationError):
+        status = 503
+    elif isinstance(exc, AIProviderError):
+        status = 502
+    elif isinstance(exc, (ValueError, TypeError)):
+        status = 400
+    else:
+        status = 500
+    return jsonify({"success": False, "message": str(exc)}), status
 
 @waifu_ai_operator_bp.post("/questions/generate")
 @operator_required

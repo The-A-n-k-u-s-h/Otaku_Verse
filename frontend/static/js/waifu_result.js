@@ -38,13 +38,18 @@
     setText("compatibility-message", explanation.compatibility_message);
 
     const image = document.getElementById("match-image");
+    const gif = document.getElementById("match-gif");
     if (image) {
-      if (character.image_url) {
-        image.src = character.image_url;
-        image.hidden = false;
-      } else {
-        image.hidden = true;
-      }
+      image.hidden = !character.image_url;
+      if (character.image_url) image.src = character.image_url;
+      else image.removeAttribute("src");
+      image.onerror = () => { image.hidden = true; };
+    }
+    if (gif) {
+      gif.hidden = !character.gif_url;
+      if (character.gif_url) gif.src = character.gif_url;
+      else gif.removeAttribute("src");
+      gif.onerror = () => { gif.hidden = true; };
     }
 
     const list = document.getElementById("strongest-connections");
