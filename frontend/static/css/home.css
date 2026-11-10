@@ -773,6 +773,7 @@ button {
 }
 
 /* RESPONSIVE */
+/* RESPONSIVE */
 
 @media (max-width: 900px) {
     .hero {
@@ -790,27 +791,159 @@ button {
     }
 
     .feature-grid {
-        max-width: 100%;
-        gap: 20px;
+        column-gap: 25px;
+        row-gap: 40px;
     }
 
-    .feature-card {
-        min-height: 370px;
-        padding: 22px;
+    .image-card {
+        height: 380px;
     }
 
-    .feature-card:last-child {
-        width: calc((100% - 20px) / 2);
-    }
-
-    .feature-card img,
-    .feature-card .feature-image {
-        height: 165px;
-        min-height: 165px;
+    .discussion-card {
+        width: 85%;
     }
 }
 
 @media (max-width: 650px) {
+    .navbar {
+        padding: 15px 5%;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .nav-actions {
+        gap: 7px;
+    }
+
+    .login-btn,
+    .register-btn {
+        padding: 9px 12px;
+        font-size: 11px;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 65px 7%;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero-art {
+        align-self: center;
+    }
+
+    .features-section {
+        padding: 60px 6%;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 0;
+        width: 100%;
+    }
+
+    .image-card {
+        position: relative;
+        width: 100%;
+        height: 380px;
+        min-height: 380px;
+        overflow: hidden;
+        border-radius: 16px;
+        isolation: isolate;
+    }
+
+    /* Keep image covering the full card */
+    .image-card img,
+    .image-card .feature-image {
+        position: absolute !important;
+        inset: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        max-width: none !important;
+        object-fit: cover !important;
+        object-position: center !important;
+        margin: 0 !important;
+        z-index: -2 !important;
+    }
+
+    /* Gradient overlay for readability */
+    .image-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.95) 0%,
+            rgba(0, 0, 0, 0.6) 40%,
+            rgba(0, 0, 0, 0.1) 80%
+        );
+        opacity: 0.85; /* Visible by default on touch screens so text is readable */
+        z-index: -1;
+    }
+
+    /* Text overlay stays anchored at bottom */
+    .image-card .feature-overlay {
+        position: absolute;
+        inset: 0;
+        padding: 22px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-start;
+        opacity: 1; /* Always visible on mobile devices */
+        transform: translateY(0);
+        z-index: 2;
+        pointer-events: auto;
+    }
+
+    .feature-overlay h3 {
+        font-size: 22px;
+        margin: 8px 0;
+    }
+
+    .feature-overlay p {
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+    .feature-number {
+        top: 18px;
+        right: 20px;
+    }
+
+    .discussion-card {
+        grid-column: auto;
+        width: 100%;
+    }
+
+    .guest-banner {
+        margin: 45px 6%;
+        padding: 28px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .guest-timer {
+        right: 10px;
+        bottom: 10px;
+        gap: 9px;
+        padding: 10px;
+    }
+
+    .guest-modal {
+        padding: 30px 20px;
+    }
+
     .navbar {
         padding: 15px 5%;
         flex-wrap: wrap;

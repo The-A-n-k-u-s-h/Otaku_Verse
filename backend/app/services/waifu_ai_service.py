@@ -3,19 +3,28 @@ import os
 import urllib.request
 import urllib.error
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
+
 class AIConfigurationError(RuntimeError):
     pass
 
+
 class AIProviderError(RuntimeError):
     pass
+
 
 def _chat_completion(system_prompt, user_prompt, temperature=0.4):
     """OpenAI-compatible chat completion using Python's standard library."""
     api_key = os.getenv("OPENAI_API_KEY", "").strip()
     if not api_key:
         raise AIConfigurationError("Set OPENAI_API_KEY before using AI generation.")
+    
     base_url = os.getenv("OPENAI_BASE_URL", "https://api.openai.com/v1").rstrip("/")
     model = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
+    
     payload = {
         "model": model,
         "temperature": temperature,
@@ -25,12 +34,17 @@ def _chat_completion(system_prompt, user_prompt, temperature=0.4):
             {"role": "user", "content": user_prompt},
         ],
     }
+    
     req = urllib.request.Request(
         base_url + "/chat/completions",
         data=json.dumps(payload).encode("utf-8"),
-        headers={"Authorization": "Bearer " + api_key, "Content-Type": "application/json"},
+        headers={
+            "Authorization": "Bearer " + api_key,
+            "Content-Type": "application/json",
+        },
         method="POST",
     )
+    
     try:
         with urllib.request.urlopen(req, timeout=60) as response:
             result = json.loads(response.read().decode("utf-8"))
@@ -45,6 +59,7 @@ def _chat_completion(system_prompt, user_prompt, temperature=0.4):
     except (urllib.error.URLError, TimeoutError, KeyError, IndexError, json.JSONDecodeError) as exc:
         raise AIProviderError(f"Could not generate valid JSON from the AI provider: {exc}") from exc
 
+
 def generate_question_drafts(topic, profile_type, trait_key, count=3, audience="adult anime fans"):
     system = """You create thoughtful, non-clinical anime soulmate questionnaire drafts.
 Return JSON only: {"questions":[{"prompt":"...","category":"...","profile_type":"personality or romantic","trait_key":"...","explanation":"...","options":[{"text":"...","score":0}]}]}.
@@ -57,6 +72,7 @@ Use exactly this profile_type and trait_key for every question. Scores should sp
     if not isinstance(questions, list) or not questions:
         raise AIProviderError("AI returned no question drafts.")
     return questions[:count]
+
 
 def discover_character_candidates(anime_title, count=3, notes=""):
     system = """You help an operator research female anime character candidates for a fictional compatibility catalogue.

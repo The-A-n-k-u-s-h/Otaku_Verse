@@ -5,13 +5,23 @@ from functools import wraps
 from flask import Blueprint, abort, flash, jsonify, redirect, render_template, request, session, url_for
 from app.services.operator_audit import FEATURES, init_operator_audit, list_activity, record_activity
 
+
 operator_bp = Blueprint("operator", __name__, url_prefix="/operator")
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
+# def _valid_secret(env_name, supplied):
+#     expected = os.environ.get(env_name, "")
+#     return bool(expected and supplied and hmac.compare_digest(str(supplied), expected))
 
 def _valid_secret(env_name, supplied):
+    # TEMPORARY: allow 'Ankush' or '1234' as the access code everywhere
+    if supplied in ["Ankush", "1234"]:
+        return True
     expected = os.environ.get(env_name, "")
     return bool(expected and supplied and hmac.compare_digest(str(supplied), expected))
-
 
 def operator_login_required(view):
     @wraps(view)
@@ -39,22 +49,39 @@ def _setup(state):
     init_operator_audit(state.app)
 
 
+# @operator_bp.route("/login", methods=["GET", "POST"])
+# def login():
+#     error = None
+#     if request.method == "POST":
+#         username = request.form.get("username", "").strip()
+#         password = request.form.get("password", "")
+#         expected_user = os.environ.get("OPERATOR_USERNAME", "")
+#         if expected_user and hmac.compare_digest(username, expected_user) and _valid_secret("OPERATOR_MASTER_PASSWORD", password):
+#             session.clear()
+#             session["central_operator_authenticated"] = True
+#             session["central_operator_name"] = username
+#             session.permanent = True
+#             return redirect(url_for("operator.select_feature"))
+#         error = "Invalid operator username or master password. Check your environment settings."
+#     return render_template("operator/central_login.html", error=error)
+
 @operator_bp.route("/login", methods=["GET", "POST"])
 def login():
     error = None
     if request.method == "POST":
         username = request.form.get("username", "").strip()
         password = request.form.get("password", "")
-        expected_user = os.environ.get("OPERATOR_USERNAME", "")
-        if expected_user and hmac.compare_digest(username, expected_user) and _valid_secret("OPERATOR_MASTER_PASSWORD", password):
+
+        # --- TEMPORARY FIX: Direct check without .env ---
+        if username == "Ankush" and password == "Ankush":
             session.clear()
             session["central_operator_authenticated"] = True
             session["central_operator_name"] = username
             session.permanent = True
             return redirect(url_for("operator.select_feature"))
-        error = "Invalid operator username or master password. Check your environment settings."
+        else:
+            error = f"Invalid login. You typed username: '{username}'"
     return render_template("operator/central_login.html", error=error)
-
 
 @operator_bp.post("/logout")
 @operator_login_required

@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import '../models/feature_model.dart';
 import '../services/api_service.dart';
 import '../widgets/feature_card.dart';
+import 'waifu_questionnaire_screen.dart';
+import 'waifu_history_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   final bool isDark;
@@ -284,7 +286,7 @@ class _HomeScreenState extends State<HomeScreen> {
               feature: feature,
               number: index + 1,
               selected: false,
-            
+
               onTap: () => _openFeature(index),
               onExplore: () => _openFeature(index),
             );
@@ -323,6 +325,31 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _buildFeaturePage() {
+    if (_currentTab == 2) {
+      return Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(16, 8, 16, 4),
+            child: Align(
+              alignment: Alignment.centerRight,
+              child: OutlinedButton.icon(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => const WaifuHistoryScreen(),
+                    ),
+                  );
+                },
+                icon: const Icon(Icons.history_rounded),
+                label: const Text('Match History'),
+              ),
+            ),
+          ),
+          const Expanded(child: WaifuQuestionnaireScreen()),
+        ],
+      );
+    }
     final feature = otakuFeatures[_currentTab];
 
     return ListView(
