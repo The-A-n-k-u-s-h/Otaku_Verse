@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-11-10T11:27:19.524447+00:00",
+  "generated_at": "2026-11-10T16:50:35.204693+00:00",
   "characters": [],
   "questions": [
     {
@@ -945,15 +945,15 @@
       "profile_type": "romantic",
       "trait_key": "personal_space",
       "explanation": "Demo question measuring the personal space trait.",
-      "status": "pending_review",
+      "status": "approved",
       "is_required": 1,
       "display_order": 9,
       "created_by": "Ankush",
       "reviewed_by": "Ankush",
-      "reviewed_at": "2026-11-10 11:27:13",
+      "reviewed_at": "2026-11-10 16:50:35",
       "rejection_reason": "",
       "created_at": "2026-11-10 10:27:11",
-      "updated_at": "2026-11-10 11:27:13",
+      "updated_at": "2026-11-10 16:50:35",
       "image_url": "",
       "gif_url": "",
       "audio_url": "",
